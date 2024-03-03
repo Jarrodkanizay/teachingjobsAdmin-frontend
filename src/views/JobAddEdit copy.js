@@ -640,7 +640,7 @@ const JobAddEdit = ({ job }) => {
                                 </label>
                                 <div className=" text-left">
                                     <input type="checkbox" value={position}
-                                        defaultChecked={job?.positiontypes.some((p) => p.positionType === position)}
+                                        defaultChecked={job?.positiontypes?.some((p) => p.positionType === position)}
                                         
                                         {...register('positiontypes')}
                                     />

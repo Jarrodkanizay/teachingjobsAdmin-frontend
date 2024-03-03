@@ -594,7 +594,7 @@ const JobAddEdit = ({ job }) => {
                                             <div className="flex gap-1">
                                                 <div className=" text-left">
                                                     <input type="checkbox" value={position}
-                                                        defaultChecked={job?.positiontypes.some((p) => p.positionType === position)}
+                                                        defaultChecked={job?.positiontypes?.some((p) => p.positionType === position)}
                                                         {...register('positiontypes')}
                                                     />
                                                 </div>
