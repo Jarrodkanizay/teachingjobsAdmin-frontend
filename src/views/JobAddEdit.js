@@ -173,7 +173,7 @@ const JobAddEdit = ({ job }) => {
             master_category_job_type = job.master_category_job_type
             setValue('activation_date', new Date(job.activation_date).toISOString().split('T')[0])
             setValue('expiration_date', new Date(job.expiration_date).toISOString().split('T')[0])
-            dispatch(setEmployer({ company_name: job.employer.company_name, employer_id: job.employer_id, logo: job.employer.logo, employerPageURL: job.employer.employerPageURL, clientType: job.clientType }))
+            dispatch(setEmployer({ company_name: job?.employer?.company_name, employer_id: job.employer_id, logo: job.employer?.logo, employerPageURL: job.employer.employerPageURL, clientType: job.clientType }))
         }
         // setValue('postedBy', userInfo.id)
         // if (employer) {
@@ -390,7 +390,7 @@ const JobAddEdit = ({ job }) => {
                             <div className="card w-[100px] h-[100px] bg-base-100 shadow-xl ">
                                 <div className="w-[100px] h-[100px] ">
                                     <img
-                                        src={employer.logo ? `https://academicjobs.s3.amazonaws.com/img/university-logo/${employer.logo}` : '/favicon.png'}
+                                        src={employer?.logo ? `https://academicjobs.s3.amazonaws.com/img/university-logo/${employer?.logo}` : '/favicon.png'}
                                         alt={`${company_name}`}
                                         className="object-contain rounded-md bg-white"
                                     />
