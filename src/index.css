@@ -1,0 +1,375 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --color-primary: #f4a10c;
+  --color-primary-hover: rgb(234 88 12);
+  --color-primary-light: #fee1ab;
+}
+
+#root {
+  margin-left: auto;
+  margin-right: auto;
+  /*max-width: 1280px;/
+    /* overflow: hidden; */
+}
+
+.dark {
+  @apply bg-gray-800 text-red-600;
+}
+
+ul {
+  list-style-type: none;
+}
+
+label {
+  font-size: 1rem;
+}
+
+.grid1 {
+  columns: 4;
+  column-gap: 0;
+}
+
+.break {
+  break-before: column;
+}
+
+.wrapper p {
+  margin: 10px 0 10px 0;
+}
+
+.wrapper h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.wrapper h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+iframe {
+  width: 100%;
+}
+
+.academic-award {
+  font-weight: bold;
+}
+
+.academic-award {
+  width: 50px;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  height: 60px;
+  color: #000;
+  padding: 18px 8px;
+  margin: 0px 14px;
+  display: inline-block;
+  position: relative;
+  /* opacity: 0.75; */
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link::before,
+.nav-link::after {
+  position: absolute;
+  height: 48px;
+  transition: 300ms;
+  content: "";
+  border-bottom: 3px solid var(--color-primary);
+  z-index: -1;
+  left: 0;
+  width: 0%;
+  bottom: 6px;
+}
+
+.nav-link-ltr::before {
+  width: 0%;
+}
+
+.nav-link::after {
+  position: absolute;
+  transition: 300ms;
+  content: "";
+  border-bottom: 3px solid #ddd;
+  z-index: -2;
+  width: 100%;
+}
+
+.nav-link-ltr:hover::before {
+  background-color: var(--color-primary-light);
+  width: 100%;
+}
+
+.nav-link-ltr.active::before {
+  width: 100%;
+  border-bottom: 3px solid black;
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.post-a-job {
+  background-color: var(--color-primary-light);
+}
+
+.mobile-icons {
+  font-size: 20px;
+  color: var(--color-primary-light);
+}
+
+.mobile-icons.triangle {
+  font-size: 20px;
+}
+
+.nav-sub-heading {
+  /* font-size: 9px; */
+  line-height: 0.7;
+  font-weight: bold;
+}
+
+input {
+  position: relative;
+}
+
+i.required {
+  display: none;
+}
+
+p[required] {
+  margin-left: 10px;
+  font-size: 12px;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+input[required]+i.required,
+select[required]+i.required,
+textarea[required]+i.required,
+p[required]::before {
+  display: block;
+  color: red;
+  position: absolute;
+  inset: 0;
+  left: 6px;
+  top: 0px;
+  font-style: normal;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+p[required]::before {
+  content: "*";
+  left: 0px;
+  top: -2px;
+}
+
+.asterisk {
+  color: red;
+  position: relative;
+  top: 8px;
+  left: 1px;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 0;
+}
+
+section h2,
+section h3,
+section h4 {
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+}
+
+section h2 {
+  font-size: 1.8rem;
+}
+
+section h3 {
+  font-size: 1.4rem;
+}
+
+section h4 {
+  font-size: 1.1rem;
+  color: #757575;
+  font-weight: bold;
+}
+
+section p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+section.template a {
+  color: rgb(0, 107, 213);
+  text-decoration: underline;
+  font-weight: bold;
+  font-weight: 600;
+}
+
+section.template .school-images {
+  display: flex;
+}
+
+section.template .school-images img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+section.template .school-images img.school-logo {
+  max-width: 100px;
+}
+
+section.template .nomination-badge {
+  max-width: 140px;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Email Template styles */
+section.email-template .header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+section.email-template .sub-header {
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* Style for principal's name */
+section.email-template .principal-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Style for paragraph text */
+section.email-template p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Style for links */
+section.email-template a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Style for digital nomination badge */
+section.email-template .nomination-badge {
+  max-width: 100px;
+}
+
+/* Style the unordered list */
+/* section.template ul,
+section ul,
+.ul {
+  list-style-type: disc;
+  padding-left: 40px;
+} */
+
+/* Style the list items */
+/* section.template li,
+section li,
+.ul li {
+  margin-bottom: 8px;
+} */
+
+.list-headings {
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
+.list-headings:first-child {
+  margin-top: 0;
+}
+
+.talent-pool input,
+.talent-pool textarea,
+.talent-pool select {
+  border: 1px solid #ccc;
+}
+
+/* .quill .ql-editor {
+  resize: vertical;
+  overflow: auto;
+} */
+.quill {
+  height: 100%;
+}
+
+.quill .ql-editor {
+  resize: vertical;
+  overflow: auto;
+  min-height: 300px;
+  height: 100%;
+}
+
+.bg-aj {
+  background-color: var(--color-primary);
+}
+
+.text-aj {
+  color: var(--color-primary);
+}
+
+.btn-aj {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 100vmax;
+}
+
+.btn-aj:hover {
+  background-color: var(--color-primary-hover) !important;
+}
+
+input[type="radio"]+label span {
+  transition: background .2s,
+    transform .2s;
+}
+
+input[type="radio"]+label span:hover,
+input[type="radio"]+label:hover span {
+  transform: scale(1.2);
+}
+
+input[type="radio"]:checked+label span {
+  background-color: #1F9D55;
+  box-shadow: 0px 0px 0px 2px white inset;
+}
+
+input[type="radio"]:checked+label {
+  color: #1F9D55;
+}
