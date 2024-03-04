@@ -16,7 +16,7 @@ const Layout1 = () => {
               to={`/admin-home/`}>
               <img
                 className="w-60"
-                src="https://academicjobs.s3.amazonaws.com/img/_misc/academic-jobs-logo.png"
+                src="/public/NewTeachingJobsLogo.png"
                 alt=""
               />
             </Link>
@@ -146,7 +146,7 @@ const Layout1 = () => {
               to={`/admin-home/`}>
               <img
                 className="w-60"
-                src="https://academicjobs.s3.amazonaws.com/img/_misc/academic-jobs-logo.png"
+                src="https://academicjobs.s3.amazonaws.com/img/_misc/NewTeachingJobsLogo.png"
                 alt=""
               />
             </Link>

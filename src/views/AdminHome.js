@@ -39,7 +39,7 @@ function AdminHome(props) {
     //setValue("description", editorState);
   };
   return (
-    <div className=" flex  flex-col px-6  gap-8 mt-8">
+    <div className=" flex  flex-col px-6  gap-8 mt-4">
       {/* <Link
           to={`/post-a-job/`}
           className="text-[#f4a10c] w-[20rem] h-[30px] font-bold shadow-md rounded px-2  text-center border border-[#f4a10c] hover:bg-gradient-to-r from-gray-400 via-amber-500 to-amber-500 font-bold hover:text-white "
@@ -70,21 +70,12 @@ function AdminHome(props) {
       <div className="flex justify-between w-full gap-8">
         <div className="w-1/2 ">
           {/* Hero banner */}
-          <div className="lg:hero-content flex-col lg:flex-row-reverse bg-slate-200 p-10 rounded-xl ">
-            <img
-              src={`https://academicjobs.s3.amazonaws.com/img/_misc/Brown+Minimalist+New+Year+Greeting+Photo+Facebook+Post+(2).jpeg`}
-              width={300}
-              height={200}
-              className="lg:max-w-lg rounded-lg shadow-2xl mb-8 lg:mb-0"
-              alt="AI Powered Recruitment Platform"
-            />
+          <div className=" flex-col   rounded-xl ">
+       
             <div>
               <h1 className="lg:text-4xl font-bold text-aj">
-                Welcome! {userInfo.firstName} & the Manila team
-              </h1>
-              <p className="py-6">You've landed on the new AcademicJobs Admin Center.
-                We've just made it easier for all Manila staff to post a job for all our clients.
-              </p>
+                Welcome {userInfo.firstName} ! <br/> to the TeachingJobs admin portal </h1>
+          
               {/* <Link className="btn btn-aj" href="/post-a-job">
                 Post a Job
               </Link> */}
@@ -104,106 +95,10 @@ function AdminHome(props) {
           <SearchResults1 />
         </div>
         <div className="w-1/2">
-          {/* University Country Filter */}
-          <details className="bg-gray-300 open:bg-[amber-200] duration-300  mb-4 full width w-2/3" >
-            <summary className="bg-inherit px-5 py-3 text-lg cursor-pointer pl-8">USA Employers</summary>
-            <div className="bg-white  border border-gray-300 p-4">
-              <UniSearchBlock
-                country="United States"
-                register={register}
-                field="employer_name1"
-                customKey="Search in USA"
-                label="Search in USA"
-                value1=""
-                forceclassName=""
-                onChange={onEditorStateChange1}
-                onSelect={onSelectUniSearch}
-              />
-              <div className="">
-                <SearchResultsEmployers q={{ country: "United States" }} />
-              </div>
-            </div>
-          </details>
-          {/* University Country Filter */}
-          <details className="bg-gray-300 open:bg-[amber-200] duration-300  mb-4  w-2/3" >
-            <summary className="bg-inherit px-5 py-3 text-lg cursor-pointer pl-8">Australian Employers</summary>
-            <div className="bg-white  border border-gray-300 p-4">
-              <UniSearchBlock
-                country="Australia"
-                register={register}
-                field="employer_name1"
-                customKey="Search in AUS"
-                label="Search in AUS"
-                value1=""
-                forceclassName=""
-                onChange={onEditorStateChange1}
-                onSelect={onSelectUniSearch}
-              />
-              <div className="">
-                <SearchResultsEmployers q={{ country: "Australia" }} />
-              </div>
-            </div>
-          </details>
-          {/* University Country Filter */}
-          <details className="bg-gray-300 open:bg-[amber-200] duration-300  mb-4 w-2/3" >
-            <summary className="bg-inherit px-5 py-3 text-lg cursor-pointer pl-8">UK Employers</summary>
-            <div className="bg-white  border border-gray-300 p-4">
-              <UniSearchBlock
-                country="United Kingdom"
-                register={register}
-                field="employer_name1"
-                customKey="Search in UK"
-                label="Search in UK"
-                value1=""
-                forceclassName=""
-                onChange={onEditorStateChange1}
-                onSelect={onSelectUniSearch}
-              />
-              <div className="">
-                <SearchResultsEmployers q={{ country: "United Kingdom" }} />
-              </div>
-            </div>
-          </details>
-          {/* University Country Filter */}
-          <details className="bg-gray-300 open:bg-[amber-200] duration-300  mb-4 w-2/3" >
-            <summary className="bg-inherit px-5 py-3 text-lg cursor-pointer pl-8">Canadian Employers</summary>
-            <div className="bg-white  border border-gray-300 p-4">
-              <UniSearchBlock
-                country="Canada"
-                register={register}
-                field="employer_name1"
-                customKey="Search in Canada"
-                label="Search in Canada"
-                value1=""
-                forceclassName=""
-                onChange={onEditorStateChange1}
-                onSelect={onSelectUniSearch}
-              />
-              <div className="">
-                <SearchResultsEmployers q={{ country: "Canada" }} />
-              </div>
-            </div>
-          </details>
-          {/* University Country Filter */}
-          <details className="bg-gray-300 open:bg-[amber-200] duration-300  mb-4 w-2/3" >
-            <summary className="bg-inherit px-5 py-3 text-lg cursor-pointer pl-8">NZ Employers</summary>
-            <div className="bg-white  border border-gray-300 p-4">
-              <UniSearchBlock
-                country="New Zealand"
-                register={register}
-                field="employer_name1"
-                customKey="Search in NZ"
-                label="Search in NZ"
-                value1=""
-                forceclassName=""
-                onChange={onEditorStateChange1}
-                onSelect={onSelectUniSearch}
-              />
-              <div className="">
-                <SearchResultsEmployers q={{ country: "New Zealand" }} />
-              </div>
-            </div>
-          </details>
+ 
+        <h2 className="lg:text-3xl font-bold ">
+                Powered by the Post My Job PTY LTD team
+              </h2>
 
           <div className="flex gap-4">
           <div className="card bg-gray-900 shadow-xl w-1/2 rounded-3xl mt-16">
