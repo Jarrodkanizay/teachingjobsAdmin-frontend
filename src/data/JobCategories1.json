@@ -1,22 +1,23 @@
 {
   "master_category_job_type": [
-    "University",
-    "College",
-    "Tutor or Enrichment Academy",
-    "Secondary School",
-    "Primary",
-    "Childcare and Kindergarten",
-    "Vocational/Trade",
-    "CES",
-    "P12",
-    "Others"
+    "All Teaching Jobs",
+    "Student Focused Support",
+    "Operations - Support Staff",
+    "Leadership"
   ],
-  "Executive": [
-    "Dean (Department Head)",
-    "Provost",
-    "Heads Department Chairs Department Jobs",
-    "President / Vice Chancellor",
-    "Other"
+  "All Teaching Jobs": [
+    "Kindergarten / ELC / Early Childhood Teacher",
+    "Primary Teacher",
+    "Middle School Teacher",
+    "Secondary Teacher",
+    "Special Needs Teacher",
+    "Teaching Assistant",
+    "Teacher's Aide / Learning Support",
+    "Lecturer",
+    "Senior Lecturer",
+    "Adult / Vocational Trainer",
+    "Tutor",
+    "Other Teaching Type"
   ],
   "Human Resources": [
     "General HR",
