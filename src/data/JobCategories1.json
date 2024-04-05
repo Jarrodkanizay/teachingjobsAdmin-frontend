@@ -1,10 +1,15 @@
 {
   "master_category_job_type": [
-    "Academic / Faculty",
-    "Executive",
-    "Human Resources",
-    "Industry Jobs",
-    "Support / Administration"
+    "University",
+    "College",
+    "Tutor or Enrichment Academy",
+    "Secondary School",
+    "Primary",
+    "Childcare and Kindergarten",
+    "Vocational/Trade",
+    "CES",
+    "P12",
+    "Others"
   ],
   "Executive": [
     "Dean (Department Head)",
