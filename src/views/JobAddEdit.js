@@ -468,7 +468,7 @@ const JobAddEdit = ({ job }) => {
                                 : <div className="flex justify-start gap-10">
                                     <h1 className="text-red-600">Edit Job</h1>
                                     <Link
-                                        to={`https://www.academicjobs.com/jobs/${"company_name"
+                                        to={`https://www.teachingjobs.com.au/jobs/${"company_name"
                                             .replace(/\W+/g, "-")
                                             .toLowerCase()}/${job.id}?active=true`}
                                         className="btn bg-yellow-500"
