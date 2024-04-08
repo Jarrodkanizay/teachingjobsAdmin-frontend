@@ -164,8 +164,8 @@ const JobAddEdit = ({ job }) => {
                 setValue('featured', true)
             }
             //alert()
-            master_category_job_type = 'Academic / Faculty'
-            setValue('master_category_job_type', 'Academic / Faculty')
+            master_category_job_type = 'All Teaching Jobs'
+            setValue('master_category_job_type', 'All Teaching Jobs')
         } else {
             console.log("=========Job=========", job)
             buttonText = "Update Job"
@@ -492,16 +492,16 @@ const JobAddEdit = ({ job }) => {
                         </select>
                     </div>
                     <div className={` ml-[100px]  w-full  flex flex-col  items-start     
-          ${master_category_job_type === "Academic / Faculty"
+          ${master_category_job_type === "All Teaching Jobs"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text pb-2  text-md mt-4">Subcategory: Academic / Faculty Jobs</label>
+                        <label className="label-text pb-2  text-md mt-4">Subcategory: All Teaching Jobs</label>
                         <select className="select select-sm select-bordered w-full font-normal"
                             {...register("subcategory_academic_jobs")}
                         >
                             <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Academic / Faculty'].map((type, index) => (
+                            {job_category['All Teaching Jobs'].map((type, index) => (
                                 <option key={index} value={type}>
                                     {type}
                                 </option>
@@ -509,16 +509,16 @@ const JobAddEdit = ({ job }) => {
                         </select>
                     </div>
                     <div className={` ml-[100px]  w-full  flex flex-col  items-start     
-          ${master_category_job_type === "Executive"
+          ${master_category_job_type === "Student Focused Support"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text  pb-2  text-md mt-4">Subcategory: Executive Jobs</label>
+                        <label className="label-text  pb-2  text-md mt-4">Subcategory: Student Focused Support</label>
                         <select className="select select-sm select-bordered w-full font-normal"
                             {...register("subcategory_executive_jobs")}
                         >
                             <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Executive'].map((type, index) => (
+                            {job_category['Student Focused Support'].map((type, index) => (
                                 <option key={index} value={type}>
                                     {type}
                                 </option>
@@ -526,7 +526,7 @@ const JobAddEdit = ({ job }) => {
                         </select>
                     </div>
                     <div className={` ml-[100px]  w-full  flex flex-col  items-start     
-          ${master_category_job_type === "Support / Administration"
+          ${master_category_job_type === "Operations - Support Staff"
                             ? "block"
                             : "hidden"
                         }`}>
@@ -535,7 +535,7 @@ const JobAddEdit = ({ job }) => {
                             {...register("subcategory_administration_support")}
                         >
                             <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Support / Administration'].map((type, index) => (
+                            {job_category['Operations - Support Staff'].map((type, index) => (
                                 <option key={index} value={type}>
                                     {type}
                                 </option>
@@ -543,39 +543,23 @@ const JobAddEdit = ({ job }) => {
                         </select>
                     </div>
                     <div className={` ml-[100px]  w-full  flex flex-col  items-start     
-          ${master_category_job_type === "Human Resources"
+          ${master_category_job_type === "Leadership"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text  pb-2  text-md mt-4">Subcategory: Human Resources Jobs</label>
+                        <label className="label-text  pb-2  text-md mt-4">Subcategory: Leadership Jobs</label>
                         <select className="select select-sm select-bordered w-full font-normal"
                             {...register("subcategory_hr_jobs")}
                         >
                             <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Human Resources'].map((type, index) => (
+                            {job_category['Leadership'].map((type, index) => (
                                 <option key={index} value={type}>
                                     {type}
                                 </option>
                             ))}
                         </select>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start     
-          ${master_category_job_type === "Industry Jobs"
-                            ? "block"
-                            : "hidden"
-                        }`}>
-                        <label className="label-text  pb-2  text-md mt-4">Subcategory: Industry Jobs</label>
-                        <select className="select select-sm select-bordered w-full font-normal capitalize"
-                            {...register("subcategory_industry_jobs")}
-                        >
-                            <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Industry Jobs'].map((type, index) => (
-                                <option key={index} value={type}>
-                                    {type}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+          
                     <div className={` ml-[100px]  w-full  flex flex-col  items-start   mt-6  `}>
                         <InputBlock2 className="font-bold" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold" />
                     </div>
