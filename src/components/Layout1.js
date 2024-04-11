@@ -27,7 +27,7 @@ const Layout1 = () => {
               className="lg:max-w-lg rounded-3xl shadow-2xl mb-8 lg:mb-0 items-center justify-center"
               alt="AI Powered Recruitment Platform"
             />
-            <li className="text-lg font-bold text-left">
+            <li className="text-lg font-bold text-left"> 
               <Link
                 to={`/admin-home/`}>
                 <svg

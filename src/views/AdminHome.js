@@ -276,65 +276,7 @@ function AdminHome(props) {
               </h2>
             </figure>
 
-            <figure className="   rounded-3xl "> 
-                        <img
-                width={150}
-                height={150}
-                src="https://media.licdn.com/dms/image/D5603AQEmcwoG_gnjFg/profile-displayphoto-shrink_200_200/0/1703919255002?e=1712188800&v=beta&t=VTdBPqWS3G09LVG6uDr2FnjD7hT89fXvhkqG2sSOuYk"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                <h2 className="  capitalize font-bold pb-1">
-                {' '}
-             Sean
-              </h2>
-            </figure>
-
-            <figure className="    rounded-3xl "> 
-                         <img
-                width={150}
-                height={130}
-                src="https://media.licdn.com/dms/image/D5603AQHcPHJ8mX7p5A/profile-displayphoto-shrink_200_200/0/1704583557572?e=1712188800&v=beta&t=JoXIC6vySUNfHfBSs4x2OfQm20oHMmgjz0KSzzAXmaw"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-               <h2 className="  capitalize font-bold pb-1">
-                {' '}
-               Dan
-              </h2>
-            </figure>
-
-            <figure className="   rounded-3xl"> 
-                        <img
-                width={150}
-                height={150}
-                src="https://media.licdn.com/dms/image/D5603AQH8XgUhkhGoeA/profile-displayphoto-shrink_200_200/0/1680087359555?e=1712188800&v=beta&t=WQHYNcc76cnlk-LMcZzt1Oh6luSuM7qIkstUnRb-4p8"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                Walter
-              </h2>
-            </figure>
-
-          </div>
-
-          <figure className="   rounded-3xl mt-16"> 
-            <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                Employee of The Month:
-                <span className="text-amber-500"><br/>BIG JIM</span>
-              </h2>
-              <img
-                width={500}
-                height={500}
-                src="https://academicjobs.s3.amazonaws.com/img/users/IMG_2126.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-full items-center justify-center"
-              />
-            </figure>
-
+            </div>
         </div>
       </div>
     </div>
