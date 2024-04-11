@@ -154,7 +154,7 @@ const JobAddEdit = ({ job }) => {
             buttonText = "Post Job"
             reset({
                 salary_period: 'yearly',
-                currency: 'USD',
+                currency: 'AUD',
                 activation_date: new Date().toISOString().substring(0, 10),
                 expiration_date: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().substring(0, 10),
                 remote: 'Onsite',
