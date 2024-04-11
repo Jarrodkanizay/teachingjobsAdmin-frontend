@@ -105,7 +105,7 @@ const EmployerAddEdit = ({ employer }) => {
   const onUploadAvatar = async (event) => {
     // Call API to BE to generate a pre-signed url to upload file object
     console.log("event.target.files[0].name", event.target.files[0].name)
-    const response = await fetch('https://api2.sciencejobs.com.au/api/generate-upload-url', {
+    const response = await fetch('https://api.sciencejobs.com.au/api/generate-upload-url', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json' // Specify the content type as JSON
