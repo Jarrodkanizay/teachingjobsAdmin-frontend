@@ -559,11 +559,12 @@ const JobAddEdit = ({ job }) => {
                     <div className={` ml-[100px]  w-full  flex flex-col  items-start   mt-6  `}>
                         <InputBlock2 className="font-bold" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold" />
                     </div>
-                    <div className={`flex flex-col gap-2 mb-6 mt-6  ${master_category_job_type === "Academic / Faculty"
-                        ? "block"
-                        : "hidden"
-                        }`}>
+                    <div className={`flex flex-col gap-2 mb-6 mt-6 `}>
                         {/* <SelectBlock2 list={position_type} field="position_type" label="Academic Position Type" register={register} errors={errors} forceClass=" font-bold" /> */}
+                        <div className={`flex flex-col gap-2  ${master_category_job_type === "Academic / Faculty"
+                            ? "block"
+                            : "hidden"
+                            }`}>
                         <label className="label-text font-bold text-lg">Academic Position Types:</label>
                         <div className="flex flex-wrap gap-4">
                             {Object.entries(academic_positions).map(([category, positions]) => (
@@ -584,6 +585,7 @@ const JobAddEdit = ({ job }) => {
                                     </ul>
                                 </div>
                             ))}
+                        </div>
                         </div>
                         {/* <div className="flex flex-wrap gap-2 mb-1 ">
                             {academic_positions.map((position) => (
