@@ -16,7 +16,7 @@ const EmployerList = ({ endOfJobs, data, nextPage }) => {
   console.log(data)
   content = data.map((employer, index) => {
     //console.log("=========================employer", employer)
-    const { id, logo, company_name, website, company_description, location, Region, country, featured, createdAt } = employer
+    const { id, logo, company_name, website, company_description, location, Region, country, featured, createdAt, clientType } = employer
     return (
       <div
         className={`font-bold ${index % 2 === 0 ? '' : ''}`}
@@ -30,7 +30,7 @@ const EmployerList = ({ endOfJobs, data, nextPage }) => {
         <button
           className="w-full bg-white border border-gray-200 p-4 mb-4 rounded-xl shadow-lg block"
           onClick={() => {
-            dispatch(setEmployer({ employer_id: id, company_name, logo }))
+            dispatch(setEmployer({ employer_id: id, company_name, logo, clientType }))
             navigate(`/employers-center/${id}/`)
             // to = {`/employers-center/${id}/`
           }}

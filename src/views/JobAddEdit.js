@@ -39,7 +39,6 @@ const validationSchema = yup.object({
     // email: yup.string().required('Missing email').email('Invalid email format'),
     //password: yup.string().required('Missing password'),
 }).required()
-
 const academic_positions =
 {
     "Faculty Positions": [
@@ -84,12 +83,11 @@ const academic_positions =
         "Assistant/Associate Dean",
         "Director/Manager",
         "Assistant Director",
-        "Dept. Head/Head/Chair",        
+        "Dept. Head/Head/Chair",
         "Endowed",
         "Program Coordinator",
         "Clinical Chair",
     ],
-
     "Others": [
         "Sessional Academic",
         "Clinical Educator",
@@ -99,7 +97,6 @@ const academic_positions =
         "Learning Specialist",
         "Academic Coach",
     ],
-
     "Others1": [
         "Lab Manager",
         "Program Director",
@@ -109,8 +106,6 @@ const academic_positions =
         "Faculty Development Specialist",
         "Instructional Designer"
     ],
-
-   
 }
 const JobAddEdit = ({ job }) => {
     console.log(job)
@@ -163,7 +158,7 @@ const JobAddEdit = ({ job }) => {
             if (employer.clientType == "unlimited") {
                 setValue('featured', true)
             }
-            //alert()
+            setValue("headlineOnly", employer.clientType === "HeadlineOnly");
             master_category_job_type = 'All Teaching Jobs'
             setValue('master_category_job_type', 'All Teaching Jobs')
         } else {
@@ -192,7 +187,7 @@ const JobAddEdit = ({ job }) => {
         if (!job) {
             setValue("company_name1", employer.company_name);
             setValue("employer_id", employer.employer_id);
-            setValue("headlineOnly", employer.clientType != "unlimited");
+            setValue("headlineOnly", employer.clientType === "HeadlineOnly");
         }
     }, [employer]);
     const { ref } = usePlacesWidget({
@@ -263,6 +258,8 @@ const JobAddEdit = ({ job }) => {
         setValue("Region", Region);
         setValue("country", country);
         setValue("logo", logo);
+        // setValue("clientType", clientType);
+
         //alert(id)
         dispatch(setEmployer({ company_name, employer_id, logo, employerPageURL, clientType }))
         if (employer_id) getCampuses({ id: employer_id })
@@ -559,7 +556,6 @@ const JobAddEdit = ({ job }) => {
                             ))}
                         </select>
                     </div>
-          
                     <div className={` ml-[100px]  w-full  flex flex-col  items-start   mt-6  `}>
                         <InputBlock2 className="font-bold" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold" />
                     </div>
@@ -582,7 +578,7 @@ const JobAddEdit = ({ job }) => {
                                                         {...register('positiontypes')}
                                                     />
                                                 </div>
-                                                <label className={`text-sm text-left text-gray-600 ${(index === 0 && category !== "Others" && category !== "Others1") ? 'font-black underline':'' }`}>{position}</label>
+                                                <label className={`text-sm text-left text-gray-600 ${(index === 0 && category !== "Others" && category !== "Others1") ? 'font-black underline' : ''}`}>{position}</label>
                                             </div>
                                         ))}
                                     </ul>
