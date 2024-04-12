@@ -260,7 +260,7 @@ const Layout1 = () => {
                 Task Allocation<br />(Management Only)
               </Link>
             </li>
-            <li className="text-lg font-bold text-left ">
+            {/* <li className="text-lg font-bold text-left ">
               <Link
                 className=""
                 to={`/JobLoadingActivity`}
@@ -281,7 +281,7 @@ const Layout1 = () => {
                 </svg>
                 Job Loading Activity
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className=" w-full ml-[2px] mt-8">
