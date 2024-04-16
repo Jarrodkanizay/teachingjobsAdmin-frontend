@@ -290,7 +290,7 @@ const EmployerAddEdit = ({ employer }) => {
           </div>
           <div className="flex gap-4">
             <div className="w-[30%] flex justify-end font-bold">
-              <div className="w-[8rem] h-[8rem] mr-1 mt-4">
+              <div className="relative w-[8rem] h-[8rem] mr-1 mt-4">
                 {logo ? (
                   <img
                     src={`https://academicjobs.s3.amazonaws.com/img/university-logo/${logo}`}
@@ -298,7 +298,7 @@ const EmployerAddEdit = ({ employer }) => {
                     className="w-full h-full object-contain rounded-md bg-white"
                   />
                 ) : (
-                  <span className="w-[30%] text-right font-bold mr-[-5.75rem]">Logo</span>
+                  <span className="absolute top-0 right-0 text-right font-bold px-2 py-1">Logo</span>
                 )}
               </div>
             </div>
