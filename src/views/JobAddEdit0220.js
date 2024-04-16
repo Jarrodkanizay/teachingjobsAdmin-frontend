@@ -388,37 +388,7 @@ const JobAddEdit = ({ job }) => {
                     </div>
                 </div>
                 <div className="w-[49%] flex flex-col ">
-                    <div className="py-[2rem] text-4xl font-black text-yellow-500 flex flex-col gap-2 ">
-                        {
-                            isAddMode
-                                ? <>
-                                    <h1>Let's Post a New Job:</h1>
-                                    <ul className="list-none  flex flex-col gap-1">
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Accuracy</span>
-                                        </li>
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Speed</span>
-                                        </li>
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Complete</span>
-                                        </li>
-                                    </ul>
-                                </>
-                                : <div className="flex justify-start gap-10">
-                                    <h1 className="text-red-600">Edit Job</h1>
-                                    <Link
-                                        to={`https://www.academicjobs.com/jobs/${"company_name"
-                                            .replace(/\W+/g, "-")
-                                            .toLowerCase()}/${job.id}?active=true`}
-                                        className="btn bg-yellow-500"
-                                        target="_blank" rel="noopener noreferrer"
-                                    >
-                                        view Posted Job
-                                    </Link>
-                                </div>
-                        }
-                    </div>
+
                     <div className="col-start-2 w-full  flex flex-col  items-start ">
                         <label className="label-text font-bold pb-2  text-lg">Master Category: General Job Type</label>
                         <select className="select select-sm select-bordered w-full font-normal"

@@ -24,7 +24,7 @@ const Layout1 = () => {
               src={userInfo.portrait ? `https://academicjobs.s3.amazonaws.com/img/users/${userInfo.portrait}` : "/user.jpg"}
               width={150}
               height={150}
-              className="lg:max-w-lg rounded-3xl shadow-2xl mb-8 lg:mb-0 items-center justify-center"
+              className="lg:max-w-lg rounded-3xl shadow-2xl mb-8 lg:mb-0 items-center justify-center ml-8"
               alt="AI Powered Recruitment Platform"
             />
             <li className="text-lg font-bold text-left"> 
@@ -105,7 +105,7 @@ const Layout1 = () => {
                 >
                   <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6h4z"></path>
                 </svg>
-                Post Job
+                Post a Job
               </Link>
             </li>
             <li className="text-lg font-bold text-left ">
@@ -146,7 +146,7 @@ const Layout1 = () => {
               to={`/admin-home/`}>
               <img
                 className="w-60"
-                src="https://academicjobs.s3.amazonaws.com/img/_misc/NewTeachingJobsLogo.png"
+                src="NewTeachingJobsLogo.png"
                 alt=""
               />
             </Link>
@@ -154,7 +154,7 @@ const Layout1 = () => {
               src={userInfo.portrait ? `https://academicjobs.s3.amazonaws.com/img/users/${userInfo.portrait}` : "/user.jpg"}
               width={150}
               height={150}
-              className="lg:max-w-lg rounded-3xl shadow-2xl mb-8 lg:mb-0 items-center justify-center"
+              className="lg:max-w-lg rounded-3xl shadow-2xl mb-8 lg:mb-0 items-center justify-center ml-10"
               alt="AI Powered Recruitment Platform"
             />
             <li className="text-lg font-bold text-left">
@@ -235,7 +235,7 @@ const Layout1 = () => {
                 >
                   <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6h4z"></path>
                 </svg>
-                Post Job
+                Post a Job
               </Link>
             </li>
             <li className="text-lg font-bold text-left ">
@@ -284,7 +284,7 @@ const Layout1 = () => {
             </li> */}
           </ul>
         </div>
-        <div className=" w-full ml-[2px] mt-8">
+        <div className=" w-full ml-[2px] mt-8 px-6 py-6">
           <div className="">
             <Outlet />
           </div>

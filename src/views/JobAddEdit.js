@@ -377,14 +377,21 @@ const JobAddEdit = ({ job }) => {
             )
         }
     }
+
     content = (
+        
         <div className="">
             <form onSubmit={handleSubmit(onSubmit)}
                 className="w-full flex justify-between ">
                 <div className="w-[49%] flex flex-col gap-2">
+                <div>
+    <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mb-4">Post a Job</p>
+    </div>
+                    
                     <div className="flex justify-start gap-1">
+
                         <ul className=" flex justify-start items-end gap-4   px-1  ">
-                            <div className="card w-[100px] h-[100px] bg-base-100 shadow-xl ">
+                            {/* <div className="card w-[100px] h-[100px] bg-base-100 shadow-xl ">
                                 <div className="w-[100px] h-[100px] ">
                                     <img
                                         src={employer?.logo ? `https://academicjobs.s3.amazonaws.com/img/university-logo/${employer?.logo}` : '/favicon.png'}
@@ -392,13 +399,13 @@ const JobAddEdit = ({ job }) => {
                                         className="object-contain rounded-md bg-white"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                         </ul>
                         <div>
                             {employer.employerPageURL &&
                                 <Link className="  text-blue-500 " to={employer.employerPageURL}>Institution Recruitment Page </Link>
                             }
-                            <div className=" w-[100%] mx-auto flex flex-col gap-1 ">
+                            {/* <div className=" w-[100%] mx-auto flex flex-col gap-1 ">
                                 <label className="label-text font-bold pb-2  text-lg">Institution Name</label>
                                 <UniSearchBlock
                                     register={register}
@@ -409,10 +416,24 @@ const JobAddEdit = ({ job }) => {
                                     forceClass="mb-6"
                                     onChange={onEditorStateChange1}
                                 />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
-                    <label className="label-text  text-md mt-4 font-bold">Job Title</label>
+
+
+
+                    <label className="label-text font-bold text-lg">Institution Name</label>
+                    <UniSearchBlock
+                        register={register}
+                        field="employer_name"
+                        customKey="employer_name"
+                        label="employer_name"
+                        value1={employer.company_name}
+                        forceClass="mb-6"
+                        onChange={onEditorStateChange1}
+                    />
+
+                    <label className="label-text  text-md font-bold">Job Title</label>
                     <InputBlock2 type="text" field="title" label="" register={register} errors={errors} forceClass="" />
                     <div className="flex gap-2 ">
                         <div className=" w-[100%] mx-auto flex flex-col gap-1 ">
@@ -445,22 +466,10 @@ const JobAddEdit = ({ job }) => {
                     </div>
                 </div>
                 <div className="w-[49%] flex flex-col ">
-                    <div className="py-[2rem] text-4xl font-black text-yellow-500 flex flex-col gap-2 ">
+                    {/* <div className="py-[2rem] text-4xl font-black text-yellow-500 flex flex-col gap-2 ">
                         {
                             isAddMode
                                 ? <>
-                                    <h1>Let's Post a New Job:</h1>
-                                    <ul className="list-none  flex flex-col gap-1">
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Accuracy</span>
-                                        </li>
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Speed</span>
-                                        </li>
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Complete</span>
-                                        </li>
-                                    </ul>
                                 </>
                                 : <div className="flex justify-start gap-10">
                                     <h1 className="text-red-600">Edit Job</h1>
@@ -475,7 +484,7 @@ const JobAddEdit = ({ job }) => {
                                     </Link>
                                 </div>
                         }
-                    </div>
+                    </div> */}
                     <div className="col-start-2 w-full  flex flex-col  items-start ">
                         <label className="label-text font-bold pb-2  text-lg">Master Category: General Job Type</label>
                         <select className="select select-sm select-bordered w-full font-normal"
@@ -488,12 +497,12 @@ const JobAddEdit = ({ job }) => {
                             ))}
                         </select>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start     
+                    <div className={`w-full  flex flex-col  items-start     
           ${master_category_job_type === "All Teaching Jobs"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text pb-2  text-md mt-4">Subcategory: All Teaching Jobs</label>
+                        <label className="label-text pb-2 text-md mt-4">Subcategory: All Teaching Jobs</label>
                         <select className="select select-sm select-bordered w-full font-normal"
                             {...register("subcategory_academic_jobs")}
                         >
@@ -505,7 +514,7 @@ const JobAddEdit = ({ job }) => {
                             ))}
                         </select>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start     
+                    <div className={` w-full  flex flex-col  items-start     
           ${master_category_job_type === "Student Focused Support"
                             ? "block"
                             : "hidden"
@@ -556,7 +565,7 @@ const JobAddEdit = ({ job }) => {
                             ))}
                         </select>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start   mt-6  `}>
+                    <div className={`w-full  flex flex-col  items-start   mt-6  `}>
                         <InputBlock2 className="font-bold" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold" />
                     </div>
                     <div className={`flex flex-col gap-2 mb-6 mt-6 `}>

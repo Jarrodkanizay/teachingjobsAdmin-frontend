@@ -582,7 +582,7 @@ const JobAddEdit = ({ job }) => {
                             ))}
                         </select>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start   mt-6  `}>
+                    <div className={` w-full  flex flex-col  items-start   mt-6  `}>
                         <InputBlock2 className="font-bold" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold" />
                     </div>
                     <div className={`flex flex-col gap-2 mb-6 mt-6  ${master_category_job_type === "Academic / Faculty"

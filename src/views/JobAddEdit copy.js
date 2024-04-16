@@ -498,18 +498,6 @@ const JobAddEdit = ({ job }) => {
                         {
                             isAddMode
                                 ? <>
-                                    <h1>Let's Post a New Job:</h1>
-                                    <ul className="list-none  flex flex-col gap-1">
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Accuracy</span>
-                                        </li>
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Speed</span>
-                                        </li>
-                                        <li className="relative before:content-['✔'] before:block before:text-green-500 before:absolute before:left-0">
-                                            <span className="ml-12">Complete</span>
-                                        </li>
-                                    </ul>
                                 </>
                                 : <div className="flex justify-start gap-10">
                                     <h1 className="text-red-600">Edit Job</h1>
@@ -622,7 +610,7 @@ const JobAddEdit = ({ job }) => {
                             ))}
                         </select>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start   mt-6  `}>
+                    <div className={` w-full  flex flex-col  items-start   mt-6  `}>
                         <InputBlock2 className="font-bold" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold" />
                     </div>
                     <div className={`flex flex-col gap-2 mb-6 mt-6  ${master_category_job_type === "Academic / Faculty"
