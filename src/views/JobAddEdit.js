@@ -379,15 +379,11 @@ const JobAddEdit = ({ job }) => {
     }
 
     content = (
-        
         <div className="">
+            <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mb-4">Post a Job</p>
             <form onSubmit={handleSubmit(onSubmit)}
                 className="w-full flex justify-between ">
                 <div className="w-[49%] flex flex-col gap-2">
-                <div>
-    <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mb-4">Post a Job</p>
-    </div>
-                    
                     <div className="flex justify-start gap-1">
 
                         <ul className=" flex justify-start items-end gap-4   px-1  ">
@@ -574,27 +570,27 @@ const JobAddEdit = ({ job }) => {
                             ? "block"
                             : "hidden"
                             }`}>
-                        <label className="label-text font-bold text-lg">Academic Position Types:</label>
-                        <div className="flex flex-wrap gap-4">
-                            {Object.entries(academic_positions).map(([category, positions]) => (
-                                <div key={category} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
-                                    {category === "Others" && <h2 className="text-base font-black underline mb-2">{category}</h2>}
-                                    <ul className="list-none p-0 mb-4">
-                                        {positions.map((position, index) => (
-                                            <div className="flex gap-1">
-                                                <div className=" text-left">
-                                                    <input type="checkbox" value={position}
-                                                        defaultChecked={job?.positiontypes?.some((p) => p.positionType === position)}
-                                                        {...register('positiontypes')}
-                                                    />
+                            <label className="label-text font-bold text-lg">Academic Position Types:</label>
+                            <div className="flex flex-wrap gap-4">
+                                {Object.entries(academic_positions).map(([category, positions]) => (
+                                    <div key={category} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                                        {category === "Others" && <h2 className="text-base font-black underline mb-2">{category}</h2>}
+                                        <ul className="list-none p-0 mb-4">
+                                            {positions.map((position, index) => (
+                                                <div className="flex gap-1">
+                                                    <div className=" text-left">
+                                                        <input type="checkbox" value={position}
+                                                            defaultChecked={job?.positiontypes?.some((p) => p.positionType === position)}
+                                                            {...register('positiontypes')}
+                                                        />
+                                                    </div>
+                                                    <label className={`text-sm text-left text-gray-600 ${(index === 0 && category !== "Others" && category !== "Others1") ? 'font-black underline' : ''}`}>{position}</label>
                                                 </div>
-                                                <label className={`text-sm text-left text-gray-600 ${(index === 0 && category !== "Others" && category !== "Others1") ? 'font-black underline' : ''}`}>{position}</label>
-                                            </div>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                         {/* <div className="flex flex-wrap gap-2 mb-1 ">
                             {academic_positions.map((position) => (

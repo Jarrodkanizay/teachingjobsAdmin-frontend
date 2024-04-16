@@ -40,34 +40,7 @@ function AdminHome(props) {
     <div className=" flex  flex-col px-6  gap-8 mt-4">
     <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4">Our Employers</p>
 
-      {/* <Link
-          to={`/post-a-job/`}
-          className="text-[#f4a10c] w-[20rem] h-[30px] font-bold shadow-md rounded px-2  text-center border border-[#f4a10c] hover:bg-gradient-to-r from-gray-400 via-amber-500 to-amber-500 font-bold hover:text-white "
-          activeClassName="post-a-job"
-        >
-          Post a Job
-        </Link> */}
-      {/* <UniSearchBlock
-          country=""
-          register={register}
-          field="employer_name"
-          customKey="employer_name"
-          label="employer_name"
-          value1=""
-          forceClass="mb-6"
-          onChange={onEditorStateChange1}
-        /> */}
-      {/* <UniSearchBlock
-          country="Australia"
-          register={register}
-          field="employer_name1"
-          customKey="employer_name1"
-          label="employer_name1"
-          value1=""
-          forceClass="mb-6"
-          onChange={onEditorStateChange1}
-        /> */}
-<UniSearchBlock1
+          <UniSearchBlock1
             country=""
             register={register}
             field="employer_name"
@@ -91,7 +64,7 @@ function AdminHome(props) {
         
           </div>
 
-          <a class="btn w-full mt-2 text-amber-500" href="/create-employer/">Add Employer</a>
+          <a class="btn w-full mt-2 text-[#e74b7f]" href="/create-employer/">Add Employer</a>
 
           <h2 className="text-xl mt-8 font-bold">Recent Viewed Employers</h2>
           <SearchResultsEmployers />

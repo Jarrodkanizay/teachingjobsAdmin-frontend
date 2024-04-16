@@ -73,7 +73,7 @@ function AdminHome(props) {
           <div className=" flex-col   rounded-xl ">
        
             <div>
-              <h1 className="lg:text-4xl font-bold text-aj">
+              <h1 className="lg:text-4xl font-bold text-[#e74b7f]">
                 Welcome {userInfo.firstName} ! <br/> to the TeachingJobs admin portal </h1>
           
               {/* <Link className="btn btn-aj" href="/post-a-job">

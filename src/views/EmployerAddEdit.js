@@ -248,7 +248,7 @@ const EmployerAddEdit = ({ employer }) => {
   content = (
     <div className="w-full flex flex-col gap-4 pb-16">
       {!employer &&
-        <p className="text-6xl font-black text-orange-600 shadow-xl px-2 pb-4">Create Employer</p>
+        <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mb-4">Create Employer</p>
       }
       <form className='flex w-full flex-col' onSubmit={handleSubmit(onSubmit)}>
         {defaultValues?.id > 0 &&

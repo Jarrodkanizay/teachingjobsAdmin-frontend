@@ -16,7 +16,7 @@ const Layout1 = () => {
               to={`/admin-home/`}>
               <img
                 className="w-60"
-                src="/public/NewTeachingJobsLogo.png"
+                src="NewTeachingJobsLogo.png"
                 alt=""
               />
             </Link>
@@ -284,7 +284,7 @@ const Layout1 = () => {
             </li> */}
           </ul>
         </div>
-        <div className=" w-full ml-[2px] mt-8 px-6 py-6">
+        <div className=" w-full ml-[2px] mt-2 px-6 py-6">
           <div className="">
             <Outlet />
           </div>

@@ -51,7 +51,7 @@ const EmployerList = ({ endOfJobs, data, nextPage }) => {
                 year: "numeric",
               })
             }</div>
-            <div className="w-[300px] text-sm text-amber-500 font-light">{
+            <div className="w-[300px] text-sm text-[#e74b7f] font-light">{
               featured
                 ? <span>Featured</span>
                 : <span>Not Featured</span>
