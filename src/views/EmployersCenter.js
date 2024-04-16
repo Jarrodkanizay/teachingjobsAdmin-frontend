@@ -45,19 +45,7 @@ function EmployersCenter(props) {
  
   return (
     <div className="w-full flex  flex-col px-6  gap-8 mt-12">
-      <div className="flex max-w-screen-xl gap-2 border p-2 bg-gray-200 rounded">
-      {/* <UniSearchBlock1
-            country=""
-            register={register}
-            field="employer_name"
-            customKey="Search all employers"
-            label="Search all employers"
-            value1=""
-            forceClass="input-lg mx-0"
-            onChange={onEditorStateChange1}
-            onSelect={onSelectUniSearch}
-          /> */}
-      </div>
+
       <div className="w-full flex justify-between">
         <div className="w-[50%]">
           <EditEmployerProfile1 id={employer?.employer_id} /> 

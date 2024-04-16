@@ -257,22 +257,7 @@ const EmployerAddEdit = ({ employer }) => {
             {`https://academicjobs.com/employers/university/${defaultValues?.id}/`}
           </Link>}
         <div className="flex w-full flex-col gap-2 " >
-          <div className="flex gap-4">
-            <div className="w-[30%] flex justify-end font-bold">
-              <div className="w-[8rem] h-[8rem] mr-1  ">
-                <img src={`${logo ? `https://academicjobs.s3.amazonaws.com/img/university-logo/${logo}` : "/favicon.png"}`}
-                  alt={defaultValues?.company_name}
-                  className="w-full h-full object-contain rounded-md bg-white "
-                />
-              </div>
-            </div>
-            <div className="w-[50%] text-left justify-center pt-8">
-              <div class="w-full">
-                <InputBlock4 type="text" field="logo" label="Logo" register={register} errors={errors} forceClass="" />
-                <input type="file" id="fileInput" name="avatar"  {...avatarField} onChange={onUploadAvatar} />
-              </div>
-            </div>
-          </div>
+
           <div>
           </div>
           {/* <div className="flex gap-4">
@@ -301,6 +286,27 @@ const EmployerAddEdit = ({ employer }) => {
             </label>
             <div className="w-[50%] text-left">
               <InputBlock4 type="text" field="acronym" label="Acronym" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <div className="w-[30%] flex justify-end font-bold">
+              <div className="w-[8rem] h-[8rem] mr-1 mt-4">
+                {logo ? (
+                  <img
+                    src={`https://academicjobs.s3.amazonaws.com/img/university-logo/${logo}`}
+                    alt={defaultValues?.company_name}
+                    className="w-full h-full object-contain rounded-md bg-white"
+                  />
+                ) : (
+                  <span className="w-[30%] text-right font-bold mr-[-5.75rem]">Logo</span>
+                )}
+              </div>
+            </div>
+            <div className="w-[50%] text-left justify-center pt-8">
+              <div class="w-full">
+                <InputBlock4 type="text" field="logo" label="Logo" register={register} errors={errors} forceClass="" />
+                <input type="file" id="fileInput" name="avatar"  {...avatarField} onChange={onUploadAvatar} />
+              </div>
             </div>
           </div>
           <div className="flex gap-4">
@@ -381,7 +387,7 @@ const EmployerAddEdit = ({ employer }) => {
                   </label>
                   <div className=" text-left">
                     <input type="checkbox" {...register('salesLeadClientYN')}
-                
+
                     />
                   </div>
                 </div>
