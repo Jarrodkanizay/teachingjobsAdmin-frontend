@@ -571,6 +571,15 @@ const EmployerAddEdit = ({ employer }) => {
               <InputBlock4 type="text" field="email" label="email" register={register} errors={errors} forceClass="" />
             </div>
           </div>
+
+          <textarea
+            id="description-input"
+            name="07_Nominee_Description"
+            className="w-full px-4 py-3 0 border border-black  rounded-lg text-black focus:outline-none focus:border-orange-500"
+            placeholder="Please write sales notes here"
+            {...register("salesNote")}
+            // onChange={handleChange}
+          />
           <button
             className="btn btn-success w-[80%] mx-auto"
             onClick={async (e) => {
