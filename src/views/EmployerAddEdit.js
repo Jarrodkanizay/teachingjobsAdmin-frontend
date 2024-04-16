@@ -228,6 +228,9 @@ const EmployerAddEdit = ({ employer }) => {
     recordRef.current = { ...recordRef.current, [flag]: newValue };
     console.log(recordRef.current);
   };
+  const handleSalesNoteChange = () => {
+    setValue("salesNoteUpdateDate", new Date());
+  };
   const onSubmit = async (data) => {
     console.log('data', data)
     return isAddMode
@@ -571,14 +574,28 @@ const EmployerAddEdit = ({ employer }) => {
               <InputBlock4 type="text" field="email" label="email" register={register} errors={errors} forceClass="" />
             </div>
           </div>
-
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Sales Notes Update Date</label>
+            <div className="w-[50%] text-left">
+              {new Date(employer?.salesNoteUpdateDate).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+              {/* <InputBlock4 type="text" field="salesNoteUpdateDate" label="salesNoteUpdateDate" register={register} errors={errors} forceClass="" /> */}
+            </div>
+          </div>
+          <label className="w-full text-center underline font-bold">Sales Notes</label>
           <textarea
             id="description-input"
             name="07_Nominee_Description"
             className="w-full px-4 py-3 0 border border-black  rounded-lg text-black focus:outline-none focus:border-orange-500"
             placeholder="Please write sales notes here"
             {...register("salesNote")}
-            // onChange={handleChange}
+            onChange={handleSalesNoteChange}
           />
           <button
             className="btn btn-success w-[80%] mx-auto"
