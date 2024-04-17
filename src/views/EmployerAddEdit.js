@@ -239,17 +239,15 @@ const EmployerAddEdit = ({ employer }) => {
   }
   async function createEmployer1(data) {
     const response = await createEmployer(data);
-    navigate("/admin-home/");
+    navigate("/employers-center/");
   }
   async function updateEmployer1(data) {
     const response = await updateEmployer(data);
-    navigate("/admin-home/");
+      navigate(`/employers-center/${data.id}/`);
+      window.scrollTo(0, 0);
   }
   content = (
     <div className="w-full flex flex-col gap-4 pb-16">
-      {!employer &&
-        <p className="text-6xl font-black text-orange-600 shadow-xl px-2 pb-4">Create Employer</p>
-      }
       <form className='flex w-full flex-col' onSubmit={handleSubmit(onSubmit)}>
         {defaultValues?.id > 0 &&
           <Link to={`/employers/university/${defaultValues?.id}/`}
@@ -257,22 +255,7 @@ const EmployerAddEdit = ({ employer }) => {
             {`https://academicjobs.com/employers/university/${defaultValues?.id}/`}
           </Link>}
         <div className="flex w-full flex-col gap-2 " >
-          <div className="flex gap-4">
-            <div className="w-[30%] flex justify-end font-bold">
-              <div className="w-[8rem] h-[8rem] mr-1  ">
-                <img src={`${logo ? `https://academicjobs.s3.amazonaws.com/img/university-logo/${logo}` : "/favicon.png"}`}
-                  alt={defaultValues?.company_name}
-                  className="w-full h-full object-contain rounded-md bg-white "
-                />
-              </div>
-            </div>
-            <div className="w-[50%] text-left justify-center pt-8">
-              <div class="w-full">
-                <InputBlock4 type="text" field="logo" label="Logo" register={register} errors={errors} forceClass="" />
-                <input type="file" id="fileInput" name="avatar"  {...avatarField} onChange={onUploadAvatar} />
-              </div>
-            </div>
-          </div>
+
           <div>
           </div>
           {/* <div className="flex gap-4">
@@ -303,108 +286,7 @@ const EmployerAddEdit = ({ employer }) => {
               <InputBlock4 type="text" field="acronym" label="Acronym" register={register} errors={errors} forceClass="" />
             </div>
           </div>
-          <div className="flex gap-4">
-            <label className="w-[30%] text-right  font-bold">AJ Admin Agent</label>
-            <div className="w-[50%] text-left">
-              <select id="userDropdown"
-                {...register("AJAdminAgent")}
-              >
-                <option value="">Select an Agent</option>
-                {users.map(user => (
-                  <option key={user.id} value={user.id}>
-                    {user.firstName}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <label className="w-[30%] text-right  font-bold">Employer Type
-            </label>
-            <div className="w-[50%] flex flex-col gap-2 text-left">
-              <div className="flex gap-3">
-                <div className="flex gap-1">
-                  <label className="text-sm text-right  font-bold">Unlimited
-                  </label>
-                  <div className=" text-left">
-                    <input type="checkbox" {...register('unlimitedYN')}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setValue("ranking", "5");
-                          setValue("clientType", 'HeadlineOnly');
-                        } else {
-                          setValue("ranking", "3");
-                          setValue("clientType", 'HeadlineOnly');
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-1">
-                  <label className="text-sm text-right  font-bold">Region Top Uni
-                  </label>
-                  <div className=" text-left">
-                    <input type="checkbox" {...register('top20University')}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setValue("ranking", "5");
-                          setValue("clientType", 'freeListing');
-                        } else {
-                          setValue("ranking", "3");
-                          setValue("clientType", 'HeadlineOnly');
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-1">
-                  <label className="text-sm text-right  font-bold">Job Elephant Client
-                  </label>
-                  <div className=" text-left">
-                    <input type="checkbox" {...register('jobElephantClientYN')}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setValue("ranking", "5");
-                          setValue("clientType", 'HeadlineOnly');
-                        } else {
-                          setValue("ranking", "3");
-                          setValue("clientType", 'HeadlineOnly');
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex gap-1">
-                  <label className="text-sm text-right  font-bold">Sales Lead Client
-                  </label>
-                  <div className=" text-left">
-                    <input type="checkbox" {...register('salesLeadClientYN')}
-                
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-1">
-                  <label className="text-sm  text-right  font-bold">Industry Client
-                  </label>
-                  <div className=" text-left">
-                    <input type="checkbox" {...register('industryClientYN')}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setValue("ranking", "5");
-                          setValue("clientType", 'HeadlineOnly');
-                        } else {
-                          setValue("ranking", "3");
-                          setValue("clientType", 'HeadlineOnly');
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Ranking</label>
             <div className="w-[50%] text-left">
@@ -472,6 +354,78 @@ const EmployerAddEdit = ({ employer }) => {
               </div>
             </div>
           </div>
+          
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Employer Type
+            </label>
+            <div className="w-[50%] flex flex-col gap-2 text-left">
+              <div className="flex gap-3">
+                <div className="flex gap-1">
+                  <label className="text-sm text-right  font-bold">Unlimited
+                  </label>
+                  <div className=" text-left">
+                    <input type="checkbox" {...register('unlimitedYN')}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setValue("ranking", "5");
+                          setValue("clientType", 'HeadlineOnly');
+                        } else {
+                          setValue("ranking", "3");
+                          setValue("clientType", 'HeadlineOnly');
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="flex gap-1">
+                  <label className="text-sm text-right  font-bold">Region Top Uni
+                  </label>
+                  <div className=" text-left">
+                    <input type="checkbox" {...register('top20University')}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setValue("ranking", "5");
+                          setValue("clientType", 'freeListing');
+                        } else {
+                          setValue("ranking", "3");
+                          setValue("clientType", 'HeadlineOnly');
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="flex gap-1">
+                  <label className="text-sm text-right  font-bold">Job Elephant Client
+                  </label>
+                  <div className=" text-left">
+                    <input type="checkbox" {...register('jobElephantClientYN')}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setValue("ranking", "5");
+                          setValue("clientType", 'HeadlineOnly');
+                        } else {
+                          setValue("ranking", "3");
+                          setValue("clientType", 'HeadlineOnly');
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="flex gap-1">
+                  <label className="text-sm text-right  font-bold">Sales Lead Client
+                  </label>
+                  <div className=" text-left">
+                    <input type="checkbox" {...register('salesLeadClientYN')}
+
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Job Listing Type</label>
             <div className="w-[50%] text-left">
@@ -524,11 +478,43 @@ const EmployerAddEdit = ({ employer }) => {
             </div>
           </div>
           <div className="flex gap-4">
-            <label className="w-[30%] text-right  font-bold">Region&nbsp;*</label>
-            <div className="w-[50%] text-left">
-              <SelectBlock3 list={regions} field="Region" label="Region" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px]" />
+            <div className="w-[30%] flex justify-end font-bold">
+              <div className="relative w-[8rem] h-[5rem] mr-1 mt-2">
+                {logo ? (
+                  <img
+                    src={`https://academicjobs.s3.amazonaws.com/img/university-logo/${logo}`}
+                    alt={defaultValues?.company_name}
+                    className="w-full h-full object-contain rounded-md bg-white"
+                  />
+                ) : (
+                  <span className="absolute top-0 right-0 text-right font-bold px-2 py-1">Logo</span>
+                )}
+              </div>
+            </div>
+            <div className="w-[50%] text-left justify-center pt-4">
+              <div class="w-full">
+                <InputBlock4 type="text" field="logo" label="Logo" register={register} errors={errors} forceClass="" />
+                <input type="file" id="fileInput" name="avatar"  {...avatarField} onChange={onUploadAvatar} />
+              </div>
             </div>
           </div>
+          <div className="flex gap-4 pb-12">
+            <label className="w-[30%] text-right  font-bold">AJ Admin Agent</label>
+            <div className="w-[50%] text-left">
+              <select id="userDropdown"
+                {...register("AJAdminAgent")}
+              >
+                <option value="">Select an Agent</option>
+                {users.map(user => (
+                  <option key={user.id} value={user.id}>
+                    {user.firstName}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        
+          <div className = "font-bold text-[#e74b7f]">Location Details</div>
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Institution-Location</label>
             <div className="w-[50%] text-left">
@@ -552,10 +538,11 @@ const EmployerAddEdit = ({ employer }) => {
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">City
             </label>
-            <div className="w-[50%] text-left">
+            <div className="w-[50%] text-left ">
               <InputBlock4 type="text" field="city" label="City" register={register} errors={errors} forceClass="" />
             </div>
           </div>
+          <div className = "mt-12 font-bold text-[#e74b7f]">Employer Website/Socials</div>
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Website</label>
             <div className="w-[50%] text-left">
@@ -574,8 +561,10 @@ const EmployerAddEdit = ({ employer }) => {
               <InputBlock4 type="text" field="email" label="email" register={register} errors={errors} forceClass="" />
             </div>
           </div>
+
+          <label className="w-full font-bold text-[#e74b7f] pt-10">Sales Notes</label>
           <div className="flex gap-4">
-            <label className="w-[30%] text-right  font-bold">Sales Notes Update Date</label>
+            <label className=" text-right  font-bold">Sales Notes Update Date</label>
             <div className="w-[50%] text-left">
               {new Date(employer?.salesNoteUpdateDate).toLocaleDateString("en-US", {
                 month: "short",
@@ -588,7 +577,6 @@ const EmployerAddEdit = ({ employer }) => {
               {/* <InputBlock4 type="text" field="salesNoteUpdateDate" label="salesNoteUpdateDate" register={register} errors={errors} forceClass="" /> */}
             </div>
           </div>
-          <label className="w-full text-center underline font-bold">Sales Notes</label>
           <textarea
             id="description-input"
             name="07_Nominee_Description"
@@ -597,7 +585,7 @@ const EmployerAddEdit = ({ employer }) => {
             {...register("salesNote")}
             onChange={handleSalesNoteChange}
           />
-          <button
+          {/* <button
             className="btn btn-success w-[80%] mx-auto"
             onClick={async (e) => {
               // const response = await updateEmployer(record);
@@ -611,7 +599,9 @@ const EmployerAddEdit = ({ employer }) => {
             }}
           >
             Save Changes
-          </button>
+          </button> */}
+
+          <label className="w-full font-bold text-[#e74b7f] pt-6">Company Description</label>
           <ReactQuill value={employer?.company_description} className=""
             //onChange={handleChange(value, "company_description")}
             onChange={(value) => {
@@ -640,7 +630,7 @@ const EmployerAddEdit = ({ employer }) => {
     </div>
   );
   return (
-    <div className="overflow-y w-full">
+    <div className="overflow-y w-full p-4">
       {content}
     </div>
   );

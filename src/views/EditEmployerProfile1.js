@@ -22,7 +22,7 @@ const EditEmployerProfile1 = ({ id = 7 }) => {
         content = (
             <div className="overflow-y w-full">
                 {employer?.company_name && (
-                    <div className="flex flex-col gap-2 p-4">
+                    <div className="flex flex-col gap-2 p-4 mb-5">
                         <div className=" flex justify-start gap-1 items-center align-middle">
                             <ul className=" flex justify-start items-end gap-4   px-1  ">
                                 <div className="card w-[100px] h-[100px] bg-base-100 shadow-xl ">
@@ -35,9 +35,8 @@ const EditEmployerProfile1 = ({ id = 7 }) => {
                                     </div>
                                 </div>
                             </ul>
-                            <div className="text-4xl text-orange-600 font-black text-center ">{employer?.company_name}</div>
+                            <div className="text-4xl text-black font-bold text-center ">{employer?.company_name}</div>
                         </div>
-                        <div className="text-2xl text-orange-600 font-black text-left ">Employer Profile</div>
                         <div>
                             <Link
                                 to={`/employers/${employer?.company_name
@@ -59,10 +58,12 @@ const EditEmployerProfile1 = ({ id = 7 }) => {
                             </Link>
                         </div>
                         <Link to={`/post-a-job/`}
-                            className="btn"
+                            className="btn btn-success w-[99%]"
                         >Post A Job</Link>
                     </div>
                 )}
+                <div className="text-2xl text-black font-bold text-left pl-4">Edit Employer Profile</div>
+
                 <EmployerAddEdit employer={data} />
             </div>
             )

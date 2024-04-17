@@ -41,17 +41,15 @@ export default function Home() {
         <div className="w-full md:w-3/5 h-[60vh] flex flex-col gap-10 items-center justify-center max-w-screen-md mx-auto">
           <div className=" flex flex-col items-center justify-center ">
             <img
-              // src="https://academicjobs.s3.amazonaws.com/img/_misc/academic-jobs-logo.png"
-              src="NewTeachingJobsLogo.png"
+              src="/NewTeachingJobsLogo.png"
               alt="AcademicJobs Logo"
               className=" pl-4 w-[20rem]"
             />
-         
           </div>
           <div className=" flex flex-col items-center justify-center gap-1">
             {/* <h1 className="text-5xl font-semibold  text-[#f4a10c] ">Welcome  to the</h1> */}
  
-            <h1 className="text-5xl font-semibold  text-[#e79d36] ">Admin Center</h1>
+            <h1 className="text-5xl font-semibold  text-[#e74b7f] ">Admin Center</h1>
           </div>
           <div className="flex gap-1 text-xl text-gray-900 justify-center items-center ">
             {token || trueSuccess ? (
