@@ -18,7 +18,7 @@ import InputBlock2 from "./InputBlock2";
 import InputBlock4 from "./InputBlock4";
 import SelectBlock2 from "./SelectBlock2";
 import SelectBlock3 from "./SelectBlock3";
-import UniSearchBlock from "./UniSearchBlock";
+import SalesNotes from "./SalesNotes";
 import SelectBlockNew from "./SelectBlockNew";
 import SelectBlock1 from "./SelectBlock1";
 import { countries } from "../utils/data";
@@ -636,6 +636,7 @@ const EmployerAddEdit = ({ employer }) => {
           </button>
         </div>
       </form>
+      {employer?.id >0  && <SalesNotes id={employer?.id} />}
     </div>
   );
   return (
