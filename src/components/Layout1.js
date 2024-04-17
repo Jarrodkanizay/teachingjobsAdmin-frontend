@@ -1,7 +1,10 @@
 import { Outlet } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate, Link, NavLink } from "react-router-dom";
+import { useSendLogoutMutation } from "../views/auth/authApiSlice";
+
 const Layout1 = () => {
+  const [sendLogout] = useSendLogoutMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const region = useSelector((state) => state.posts.region);
@@ -16,7 +19,7 @@ const Layout1 = () => {
               to={`/admin-home/`}>
               <img
                 className="w-60"
-                src="NewTeachingJobsLogo.png"
+                src="/NewTeachingJobsLogo.png"
                 alt=""
               />
             </Link>
@@ -146,7 +149,7 @@ const Layout1 = () => {
               to={`/admin-home/`}>
               <img
                 className="w-60"
-                src="NewTeachingJobsLogo.png"
+                src="/NewTeachingJobsLogo.png"
                 alt=""
               />
             </Link>
@@ -259,6 +262,20 @@ const Layout1 = () => {
                 </svg>
                 Task Allocation<br />(Management Only)
               </Link>
+            </li>
+
+            
+            <li className="text-lg font-bold text-left pl-1 ">
+              <span
+                  className="  whitespace-nowrap"
+                  onClick={() => {
+                    sendLogout();
+                    navigate("/");
+                    window.location.reload();
+                  }}
+                >
+                <img src="/logout-svgrepo-com.svg" alt="Logout"/> Logout 
+                </span>
             </li>
             {/* <li className="text-lg font-bold text-left ">
               <Link

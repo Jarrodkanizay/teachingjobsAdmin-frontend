@@ -38,7 +38,7 @@ function AdminHome(props) {
   };
   return (
     <div className=" flex  flex-col px-6  gap-8 mt-4">
-    <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4">Our Employers</p>
+    <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mt-4 mb-6">Our Employers</p>
 
           <UniSearchBlock1
             country=""

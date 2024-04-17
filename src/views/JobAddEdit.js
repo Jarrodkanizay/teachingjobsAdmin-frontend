@@ -380,7 +380,7 @@ const JobAddEdit = ({ job }) => {
 
     content = (
         <div className="">
-            <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mb-4">Post a Job</p>
+            <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mt-4 mb-6">Post a Job</p>
             <form onSubmit={handleSubmit(onSubmit)}
                 className="w-full flex justify-between ">
                 <div className="w-[49%] flex flex-col gap-2">

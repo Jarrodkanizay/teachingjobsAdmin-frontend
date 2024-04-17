@@ -36,7 +36,7 @@ function JobsCenter(props) {
     <div className=" flex  flex-col px-6  gap-8 mt-4 w-2/3">
       <form onSubmit={handleSubmit(onSubmit)}
         className="w-full  ">
-        <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mb-4">Our Jobs</p>
+        <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mt-4 mb-6">Our Jobs</p>
 
         <div className="flex justify-start items-end gap-1">
 

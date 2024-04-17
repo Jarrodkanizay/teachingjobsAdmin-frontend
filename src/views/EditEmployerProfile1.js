@@ -58,7 +58,7 @@ const EditEmployerProfile1 = ({ id = 7 }) => {
                             </Link>
                         </div>
                         <Link to={`/post-a-job/`}
-                            className="btn"
+                            className="btn btn-success w-[99%]"
                         >Post A Job</Link>
                     </div>
                 )}

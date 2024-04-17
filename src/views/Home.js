@@ -41,7 +41,7 @@ export default function Home() {
         <div className="w-full md:w-3/5 h-[60vh] flex flex-col gap-10 items-center justify-center max-w-screen-md mx-auto">
           <div className=" flex flex-col items-center justify-center ">
             <img
-              src="NewTeachingJobsLogo.png"
+              src="/NewTeachingJobsLogo.png"
               alt="AcademicJobs Logo"
               className=" pl-4 w-[20rem]"
             />
