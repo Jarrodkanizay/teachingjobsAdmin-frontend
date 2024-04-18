@@ -498,7 +498,7 @@ const EmployerAddEdit = ({ employer }) => {
               </div>
             </div>
           </div>
-          <div className="flex gap-4 pb-12">
+          <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">AJ Admin Agent</label>
             <div className="w-[50%] text-left">
               <select id="userDropdown"
@@ -513,7 +513,8 @@ const EmployerAddEdit = ({ employer }) => {
               </select>
             </div>
           </div>
-          <label className="w-full font-bold text-[#e74b7f] pt-10">Key Employer Contacts</label>
+          <div className="py-3">
+          <label className="w-full font-bold text-[#e74b7f] pt-2">Key Employer Contacts</label>
           <div className="flex gap-4">
             <label className=" text-right  font-bold">Input: Name, Job Title, Phone #, Email </label>
 
@@ -525,7 +526,8 @@ const EmployerAddEdit = ({ employer }) => {
             placeholder="Please Input: Name, Job Title, Phone #, Email"
             {...register("KeyEmployerContacts")}
             // onChange={handleSalesNoteChange}
-          />
+            />
+          </div>
           <div className = "font-bold text-[#e74b7f]">Location Details</div>
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Institution-Location</label>
