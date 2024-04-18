@@ -529,13 +529,13 @@ const JobAddEdit = ({ job }) => {
                         </ul>
                     </div>
                     <div className={` w-full  flex flex-col  items-start     
-                    ${master_category_job_type === "Student Focused Support"
+                    ${master_category_job_type === "Student Support Jobs"
                                         ? "block"
                                         : "hidden"
                                     }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Student Focused Support</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Student Support Jobs</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["Student Focused Support"].map((position, index) => (
+                        {job_category["Student Support Jobs"].map((position, index) => (
                             <div className=" w-1/4 flex ">
                             <div className=" text-left">
                                 <input
@@ -556,13 +556,13 @@ const JobAddEdit = ({ job }) => {
                         </ul>
                     </div>
                     <div className={`w-full  flex flex-col  items-start     
-          ${master_category_job_type === "Operations - Support Staff"
+                    ${master_category_job_type === "School Support Jobs"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Staff role-support / Admin</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: School Support Jobs</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["Operations - Support Staff"].map((position, index) => (
+                        {job_category["School Support Jobs"].map((position, index) => (
                             <div className=" w-1/4 flex ">
                             <div className=" text-left">
                                 <input
@@ -583,13 +583,13 @@ const JobAddEdit = ({ job }) => {
                         </ul>
                     </div>
                     <div className={`w-full  flex flex-col  items-start     
-          ${master_category_job_type === "Leadership"
+          ${master_category_job_type === "School Leadership Jobs"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Leadership Jobs</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: School Leadership Jobs</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["Leadership"].map((position, index) => (
+                        {job_category["School Leadership Jobs"].map((position, index) => (
                             <div className=" w-1/4 flex ">
                             <div className=" text-left">
                                 <input

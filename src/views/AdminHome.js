@@ -194,7 +194,7 @@ function AdminHome(props) {
                 <img
                   width={150}
                   height={150}
-                  src="https://academicjobs.s3.amazonaws.com/img/users/jhon_michael_cruz.jpg"
+                  src="/john-michael-cruz.png"
                   alt="How to Land Your Dream College Job: A Step-by-Step Guide"
                   className="rounded-3xl"
                 />
