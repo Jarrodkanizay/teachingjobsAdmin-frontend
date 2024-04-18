@@ -247,7 +247,7 @@ const EmployerAddEdit = ({ employer }) => {
       window.scrollTo(0, 0);
   }
   content = (
-    <div className="gap-4 pb-16">
+    <div className="flex flex-col gap-4 pb-16">
       <form className='flex w-full flex-col' onSubmit={handleSubmit(onSubmit)}>
         {defaultValues?.id > 0 &&
           <Link to={`/employers/university/${defaultValues?.id}/`}
