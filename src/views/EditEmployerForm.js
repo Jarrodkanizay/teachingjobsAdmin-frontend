@@ -127,7 +127,7 @@ const EditEmployerForm = ({ defaultData }) => {
                                     <input
                                         {...register("cilentType")}
                                         type="radio"
-                                        className="radio radio-warning radio-xs mr-1"
+                                        className="radio  radio-xs mr-1"
                                         value="unlimitedClient"
                                     />
                                     <span className="label-text text-xs">Unlimited</span>
@@ -138,7 +138,7 @@ const EditEmployerForm = ({ defaultData }) => {
                                     <input
                                         {...register("cilentType")}
                                         type="radio"
-                                        className="radio radio-warning radio-xs mr-1"
+                                        className="radio  radio-xs mr-1"
                                         value="freeListingClient"
                                     />
                                     <span className="label-text text-xs">Free Listing</span>
@@ -149,7 +149,7 @@ const EditEmployerForm = ({ defaultData }) => {
                                     <input
                                         {...register("cilentType")}
                                         type="radio"
-                                        className="radio radio-warning radio-xs mr-1"
+                                        className="radio  radio-xs mr-1"
                                         value="salesTargetClient"
                                     />
                                     <span className="label-text text-xs">Sales Target</span>
@@ -160,7 +160,7 @@ const EditEmployerForm = ({ defaultData }) => {
                                     <input
                                         {...register("cilentType")}
                                         type="radio"
-                                        className="radio radio-warning radio-xs mr-1"
+                                        className="radio  radio-xs mr-1"
                                         value="salesTargetClient"
                                     />
                                     <span className="label-text text-xs">Headline Only</span>

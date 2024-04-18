@@ -44,7 +44,21 @@ function EmployersCenter(props) {
   };
  
   return (
-    <div className="w-full flex  flex-col px-6  gap-8 mt-12">
+    <div className="w-full flex  flex-col px-6  gap-8 mt-2">
+                        <div className=" flex justify-start gap-1 items-center align-middle">
+                            <ul className=" flex justify-start items-end gap-4   px-1  ">
+                                <div className="card w-[100px] h-[100px] bg-base-100 shadow-xl ">
+                                    <div className="w-[100px] h-[100px] grid place-items-center">
+                                        <img
+                                            src={employer?.logo ? `https://academicjobs.s3.amazonaws.com/img/university-logo/${employer?.logo}` : '/favicon.png'}
+                                            alt={`${employer?.company_name}`}
+                                            className="object-contain rounded-md bg-white"
+                                        />
+                                    </div>
+                                </div>
+                            </ul>
+                            <div className="text-4xl text-black font-bold text-center ">{employer?.company_name}</div>
+                        </div>
 
       <div className="w-full flex justify-between">
         <div className="w-[50%]">

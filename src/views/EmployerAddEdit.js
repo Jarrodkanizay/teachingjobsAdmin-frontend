@@ -247,7 +247,7 @@ const EmployerAddEdit = ({ employer }) => {
       window.scrollTo(0, 0);
   }
   content = (
-    <div className="w-full flex flex-col gap-4 pb-16">
+    <div className="gap-4 pb-16">
       <form className='flex w-full flex-col' onSubmit={handleSubmit(onSubmit)}>
         {defaultValues?.id > 0 &&
           <Link to={`/employers/university/${defaultValues?.id}/`}
@@ -272,6 +272,8 @@ const EmployerAddEdit = ({ employer }) => {
               />
             </div>
           </div> */}
+
+
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Institution Name
             </label>
@@ -279,7 +281,7 @@ const EmployerAddEdit = ({ employer }) => {
               <InputBlock4 type="text" field="company_name" label="company_name" register={register} errors={errors} forceClass="" />
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="gap-4 hidden">
             <label className="w-[30%] text-right  font-bold">Acronym
             </label>
             <div className="w-[50%] text-left">
@@ -296,7 +298,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("ranking")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="1"
                       onChange={(e) => {
                         const selectedValue = +e.target.value; // Using the unary plus operator to convert to a number
@@ -312,7 +314,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("ranking")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="2"
                     />
                     <span className="label-text text-xs">2</span>
@@ -323,7 +325,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("ranking")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="3"
                     />
                     <span className="label-text text-xs">3</span>
@@ -334,7 +336,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("ranking")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="4"
                     />
                     <span className="label-text text-xs">4</span>
@@ -345,7 +347,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("ranking")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="5"
                     />
                     <span className="label-text text-xs">5</span>
@@ -395,7 +397,7 @@ const EmployerAddEdit = ({ employer }) => {
                   </div>
                 </div>
                 <div className="flex gap-1">
-                  <label className="text-sm text-right  font-bold">Job Elephant Client
+                  <label className="text-sm text-right  font-bold">Catholic Dioces
                   </label>
                   <div className=" text-left">
                     <input type="checkbox" {...register('jobElephantClientYN')}
@@ -435,7 +437,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("clientType")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="unlimited"
                     />
                     <span className="label-text text-xs">Unlimited</span>
@@ -446,7 +448,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("clientType")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="jobPadding"
                     />
                     <span className="label-text text-xs">Job Padding(FREE)</span>
@@ -457,7 +459,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("clientType")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="paidSingleListing"
                     />
                     <span className="label-text text-xs">Paid Single Listing</span>
@@ -468,7 +470,7 @@ const EmployerAddEdit = ({ employer }) => {
                     <input
                       {...register("clientType")}
                       type="radio"
-                      className="radio radio-warning radio-xs mr-1"
+                      className="radio  radio-xs mr-1"
                       value="HeadlineOnly"
                     />
                     <span className="label-text text-xs">Headline Only</span>
@@ -504,7 +506,7 @@ const EmployerAddEdit = ({ employer }) => {
               <select id="userDropdown"
                 {...register("AJAdminAgent")}
               >
-                <option value="">Select an Agent</option>
+                <option value="Select an Agent">Select an Agent</option>
                 {users.map(user => (
                   <option key={user.id} value={user.id}>
                     {user.firstName}
@@ -556,7 +558,7 @@ const EmployerAddEdit = ({ employer }) => {
               <InputBlock4 type="text" field="city" label="City" register={register} errors={errors} forceClass="" />
             </div>
           </div>
-          <div className = "mt-12 font-bold text-[#e74b7f]">Employer Website/Socials</div>
+          <div className = "mt-[2rem] font-bold text-[#e74b7f]">Employer Website/Socials</div>
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Website</label>
             <div className="w-[50%] text-left">
@@ -576,7 +578,29 @@ const EmployerAddEdit = ({ employer }) => {
             </div>
           </div>
 
-          
+          <label className="w-full font-bold text-[#e74b7f] mt-[2rem]">Sales Notes</label>
+          <div className="flex gap-4">
+            <label className=" text-right  font-bold">Sales Notes Update Date</label>
+            <div className="w-[50%] text-left">
+              {new Date(employer?.salesNoteUpdateDate).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+              {/* <InputBlock4 type="text" field="salesNoteUpdateDate" label="salesNoteUpdateDate" register={register} errors={errors} forceClass="" /> */}
+            </div>
+          </div>
+          <textarea
+            id="description-input"
+            name="07_Nominee_Description"
+            className="w-full px-4 py-3 0 border border-black  rounded-lg text-black focus:outline-none focus:border-orange-500"
+            placeholder="Please write sales notes here"
+            {...register("salesNote")}
+            onChange={handleSalesNoteChange}
+          />
           {/* <button
             className="btn btn-success w-[80%] mx-auto"
             onClick={async (e) => {
@@ -593,7 +617,7 @@ const EmployerAddEdit = ({ employer }) => {
             Save Changes
           </button> */}
 
-          <label className="w-full font-bold text-[#e74b7f] pt-6">Company Description</label>
+          <label className="w-full font-bold text-[#e74b7f] mt-10">Company Description</label>
           <ReactQuill value={employer?.company_description} className=""
             //onChange={handleChange(value, "company_description")}
             onChange={(value) => {
@@ -622,7 +646,7 @@ const EmployerAddEdit = ({ employer }) => {
     </div>
   );
   return (
-    <div className="overflow-y w-full p-4">
+    <div className="p-4">
       {content}
     </div>
   );

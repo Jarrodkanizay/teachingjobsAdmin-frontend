@@ -21,22 +21,10 @@ const EditEmployerProfile1 = ({ id = 7 }) => {
         //dispatch(setEmployer(data))
         content = (
             <div className="overflow-y w-full">
+                
                 {employer?.company_name && (
                     <div className="flex flex-col gap-2 p-4 mb-5">
-                        <div className=" flex justify-start gap-1 items-center align-middle">
-                            <ul className=" flex justify-start items-end gap-4   px-1  ">
-                                <div className="card w-[100px] h-[100px] bg-base-100 shadow-xl ">
-                                    <div className="w-[100px] h-[100px] grid place-items-center">
-                                        <img
-                                            src={employer?.logo ? `https://academicjobs.s3.amazonaws.com/img/university-logo/${employer?.logo}` : '/favicon.png'}
-                                            alt={`${employer?.company_name}`}
-                                            className="object-contain rounded-md bg-white"
-                                        />
-                                    </div>
-                                </div>
-                            </ul>
-                            <div className="text-4xl text-black font-bold text-center ">{employer?.company_name}</div>
-                        </div>
+
                         <div>
                             <Link
                                 to={`/employers/${employer?.company_name

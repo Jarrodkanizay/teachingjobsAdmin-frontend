@@ -524,7 +524,7 @@ const JobAddEdit = ({ job }) => {
                                         <input
                                             {...register("remote")}
                                             type="radio"
-                                            className="radio radio-warning radio-xs mr-1"
+                                            className="radio  radio-xs mr-1"
                                             value="Onsite"
                                         />
                                         <span className="label-text font-bold pb-2  text-sm">Onsite</span>
@@ -535,7 +535,7 @@ const JobAddEdit = ({ job }) => {
                                         <input
                                             {...register("remote")}
                                             type="radio"
-                                            className="radio radio-warning radio-xs mr-1"
+                                            className="radio  radio-xs mr-1"
                                             value="Remote"
                                         />
                                         <span className="label-text font-bold pb-2  text-sm">Remote</span>
@@ -546,7 +546,7 @@ const JobAddEdit = ({ job }) => {
                                         <input
                                             {...register("remote")}
                                             type="radio"
-                                            className="radio radio-warning radio-xs mr-1"
+                                            className="radio  radio-xs mr-1"
                                             value="Hybrid"
                                         />
                                         <span className="label-text font-bold pb-2  text-sm">Hybrid</span>
