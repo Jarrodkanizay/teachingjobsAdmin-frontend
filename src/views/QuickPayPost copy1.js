@@ -339,7 +339,7 @@ const QuickPayPost = () => {
                   <input
                     {...register("remote")}
                     type="radio"
-                    className="radio radio-warning radio-xs mr-1"
+                    className="radio  radio-xs mr-1"
                     value="Onsite"
                   />
                   <span className="label-text text-xs">Onsite</span>
@@ -350,7 +350,7 @@ const QuickPayPost = () => {
                   <input
                     {...register("remote")}
                     type="radio"
-                    className="radio radio-warning radio-xs mr-1"
+                    className="radio  radio-xs mr-1"
                     value="Remote"
                   />
                   <span className="label-text text-xs">Remote</span>
@@ -361,7 +361,7 @@ const QuickPayPost = () => {
                   <input
                     {...register("remote")}
                     type="radio"
-                    className="radio radio-warning radio-xs mr-1"
+                    className="radio  radio-xs mr-1"
                     value="Hybrid"
                   />
                   <span className="label-text text-xs">Hybrid</span>
@@ -404,7 +404,7 @@ const QuickPayPost = () => {
             <input
               type="radio"
               name="apply_type"
-              className="radio radio-warning radio-xs mr-1"
+              className="radio  radio-xs mr-1"
               value="Email"
               checked={formState.apply_type === "Email"}
               onChange={(event) => handleInputChange(event, "apply_type")}
@@ -415,7 +415,7 @@ const QuickPayPost = () => {
             <input
               type="radio"
               name="apply_type"
-              className="radio radio-warning radio-xs mr-1"
+              className="radio  radio-xs mr-1"
               value="Online"
               checked={formState.apply_type === "Online"}
               onChange={(event) => handleInputChange(event, "apply_type")}

@@ -33,12 +33,13 @@ function JobsCenter(props) {
     setQ(data)
   }
   return (
-    <div className=" flex  flex-col px-6  gap-8 mt-4 w-2/3">
+
+    <div className=" flex  flex-col px-6  gap-8 mt-4 w-full">
       <form onSubmit={handleSubmit(onSubmit)}
-        className="w-full  ">
+        className="w-full">
         <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mt-4 mb-6">Our Jobs</p>
 
-        <div className="flex justify-start items-end gap-1">
+        <div className="hidden justify-start items-end gap-1">
 
           <InputBlock2 className="font-bold" type="text" field="title" label="Title" register={register} errors={errors} forceClass="font-bold" />
           <UniSearchBlock
@@ -62,7 +63,7 @@ function JobsCenter(props) {
           </button>
         </div>
       </form>
-      <a class="btn w-full " href="/post-a-job">Post A Job</a>
+      <a class="btn w-full text-[#e74b7f]" href="/post-a-job">Post A Job</a>
       <SearchResults2 q={q} />
     </div>
   );

@@ -42,20 +42,18 @@ const EmployerList = ({ endOfJobs, data, nextPage }) => {
               </span>
             </div>
           </div>
-          <div className="flex justify-between items-center">
-            <div className="text-sm text-gray-700 font-light">{location}</div>
-            <div className="text-sm text-gray-700 font-light">{
-              new Date(createdAt).toLocaleDateString("en-US", {
+          <div className="grid grid-cols-3 gap-4">
+            <div className="flex justify-start text-sm text-gray-700 font-light">{location}</div>
+            <div className="text-sm text-gray-700 font-light">
+              {new Date(createdAt).toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
-              })
-            }</div>
-            <div className="w-[300px] text-sm text-[#e74b7f] font-light">{
-              featured
-                ? <span>Featured</span>
-                : <span>Not Featured</span>
-            }</div>
+              })}
+            </div>
+            <div className="w-[300px] text-sm text-[#e74b7f] font-light">
+              {featured ? <span>Featured</span> : <span>Not Featured</span>}
+            </div>
           </div>
         </button>
       </div>

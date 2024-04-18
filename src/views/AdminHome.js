@@ -34,7 +34,7 @@ function AdminHome(props) {
     console.log("============33333=========================", company_name, id, Region, country)
     setEmployerID(id)
     dispatch(setEmployer({ company_name, employer_id: id }))
-  
+
     navigate(`/employers-center/${id}/`);
     //setValue("description", editorState);
   };
@@ -67,27 +67,29 @@ function AdminHome(props) {
           forceclassName="mb-6"
           onChange={onEditorStateChange1}
         /> */}
+              <h1 className="lg:text-4xl font-bold text-black mb-8">
+                Welcome {userInfo.firstName} !</h1>
       <div className="flex justify-between w-full gap-8">
-        <div className="w-1/2 ">
+
+        <div className="w-1/2 mr-8">
           {/* Hero banner */}
           <div className=" flex-col   rounded-xl ">
-       
+
             <div>
-              <h1 className="lg:text-4xl font-bold text-[#e74b7f]">
-                Welcome {userInfo.firstName} ! <br/> to the TeachingJobs admin portal </h1>
-          
+
+
               {/* <Link className="btn btn-aj" href="/post-a-job">
                 Post a Job
               </Link> */}
             </div>
           </div>
-          <div className="p-1  shadow-xl rounded-xl">
-            <h1 className=" text-sky-600 font-bold mb-2">Your Tasks</h1>
-            <div className="w-full min-h-[500px] border border-red-600 whitespace-pre-wrap">
+          <div className="p-1  shadow-xl rounded-xl mb-4">
+            <h1 className=" text-[#e74b7f] font-bold mb-2">Your Tasks</h1>
+            <div className="custom-scrollbar w-full max-h-[300px] overflow-y-auto border  whitespace-pre-wrap">
               {
                 data &&
                 <div dangerouslySetInnerHTML={{ __html: data.task }} />
-                
+
               }
             </div>
 
@@ -95,188 +97,216 @@ function AdminHome(props) {
           <SearchResults1 />
         </div>
         <div className="w-1/2">
- 
-        <h2 className="lg:text-3xl font-bold ">
-                Powered by the Post My Job PTY LTD team
-              </h2>
-
-          <div className="flex gap-4">
-          <div className="card bg-gray-900 shadow-xl w-1/2 rounded-3xl mt-16">
-            <div className="card-body">
-       
-            <figure  >
-              <img
-                width={300}
-                height={300}
-                src="https://academicjobs.s3.amazonaws.com/img/_misc/420242991_741144318123644_4167791228012772159_n.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-            </figure>
-            <h2 className="card-title text-white">
-                {' '}
-                The Don{' '}
-              </h2>
-              <a className=" text-gray-400"> 23 Jan, 2024</a>
-            </div>
-            <ul className=" p-4 pl-12  text-gray-500 text-center font-bold" >
-            </ul>
-          </div>
         
-  <figure className="    rounded-3xl p-16"> 
+        <h1 className=" text-[#e74b7f] font-bold">Manilla Team</h1>
+
+          <div className="flex gap-4 mb-6">
+            <div className="grid grid-cols-3 gap-5 mt-4">
+              <figure className="    rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/_misc/420242991_741144318123644_4167791228012772159_n.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  The Don
+                </h2>
+              </figure>
+
+
+              <figure className="    rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/laira_andrea_austria.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl "
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  laira andrea austria
+                </h2>
+              </figure>
+
+              <figure className="   rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/joan_santos.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl h-4/5 w-40"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  joan santos
+                </h2>
+              </figure>
+
+
+              <figure className="   rounded-3xl">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/lexphil_de_vera.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  lexphil de vera
+                </h2>
+              </figure>
+
+
+              <figure className="   rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/luigi_ynaki_jardin.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  luigi ynaki jardin
+                </h2>
+              </figure>
+
+
+              <figure className="    rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/marcus_ de_leon.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  Marcus
+                </h2>
+              </figure>
+
+              <figure className="   rounded-3xl">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/jhon_michael_cruz.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  jhon michael cruz
+                </h2>
+              </figure>
+
+
+
+              <figure className="    rounded-3xl ">
+                <img
+                  width={150}
+                  height={130}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/mary_rose_joana_pecson.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  mary rose joana pecson
+                </h2>
+              </figure>
+
+              <figure className="   rounded-3xl">
+                <img
+                  width={150}
+                  height={150}
+                  src="https://academicjobs.s3.amazonaws.com/img/users/norren_saligan.jpg"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl"
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  norren saligan
+                </h2>
+              </figure>
+            </div>
+          </div>
           
-              <img
-                width={300}
-                height={300}
-                src="https://academicjobs.s3.amazonaws.com/img/_misc/View+recent+photos.jpeg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl "
-              />
+          <h1 className=" text-[#e74b7f] font-bold">Melbourne Team</h1>
+          <div className="flex gap-4">
+            <div className="grid grid-cols-3 gap-5 mt-2">
+              <figure className="rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="/jarrod.png"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl "
+                />
                 <h2 className="  capitalize font-bold pb-1">
-                {' '}
-               The Jazza
-              </h2>
-            </figure>
+                  {' '}
+                  Jarrod
+                </h2>
+              </figure>
+              <figure className="rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="/I-letter.png"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl "
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  Isabella
+                </h2>
+              </figure>
+              <figure className="rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="/L-letter.png"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl "
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  Leanne
+                </h2>
+              </figure>
+              <figure className="rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="/W-letter.png"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl "
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  Walter
+                </h2>
+              </figure>
+              <figure className="rounded-3xl ">
+                <img
+                  width={150}
+                  height={150}
+                  src="/C-letter.png"
+                  alt="How to Land Your Dream College Job: A Step-by-Step Guide"
+                  className="rounded-3xl "
+                />
+                <h2 className="  capitalize font-bold pb-1">
+                  {' '}
+                  Cian
+                </h2>
+              </figure>
             </div>
 
-
-
-
-
-          <div className="grid grid-cols-3 gap-2 mt-16">
-
-
-
-            <figure className="    rounded-3xl ">
-                          <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/laira_andrea_austria.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl "
-              />
-                <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                laira andrea austria
-              </h2>
-            </figure>
-
-            <figure className="   rounded-3xl ">
-                         <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/joan_santos.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl h-4/5 w-40"
-              />
-                 <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                joan santos
-              </h2>
-            </figure>
-
-
-            <figure className="   rounded-3xl">
-                          <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/lexphil_de_vera.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                lexphil de vera
-              </h2>
-            </figure>
-
-            <figure className="   rounded-3xl ">
-                          <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/fausto_san_juan.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                fausto san juan
-              </h2>
-            </figure>
-
-            <figure className="    rounded-3xl ">
-                        <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/jethro_mule.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                  <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                jethro mule
-              </h2>
-            </figure>
-
-            <figure className="   rounded-3xl">
-                          <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/jhon_michael_cruz.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                jhon michael cruz
-              </h2>
-            </figure>
-
-
-
-            <figure className="   rounded-3xl ">
-                        <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/luigi_ynaki_jardin.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                  <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                luigi ynaki jardin
-              </h2>
-            </figure>
-
-            <figure className="    rounded-3xl ">
-                         <img
-                width={150}
-                height={130}
-                src="https://academicjobs.s3.amazonaws.com/img/users/mary_rose_joana_pecson.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                 <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                mary rose joana pecson
-              </h2>
-            </figure>
-
-            <figure className="   rounded-3xl">
-                       <img
-                width={150}
-                height={150}
-                src="https://academicjobs.s3.amazonaws.com/img/users/norren_saligan.jpg"
-                alt="How to Land Your Dream College Job: A Step-by-Step Guide"
-                className="rounded-3xl"
-              />
-                   <h2 className="  capitalize font-bold pb-1">
-                {' '}
-                norren saligan
-              </h2>
-            </figure>
-
-            </div>
+          </div>
         </div>
       </div>
     </div>
