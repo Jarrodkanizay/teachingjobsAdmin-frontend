@@ -400,7 +400,7 @@ const EmployerAddEdit = ({ employer }) => {
                   <label className="text-sm text-right  font-bold">Catholic Dioces
                   </label>
                   <div className=" text-left">
-                    <input type="checkbox" {...register('jobElephantClientYN')}
+                    <input type="checkbox" {...register('catholicDiocesYN')}
                       onChange={(e) => {
                         if (e.target.checked) {
                           setValue("ranking", "5");
