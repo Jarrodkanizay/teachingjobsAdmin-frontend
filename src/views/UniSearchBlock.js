@@ -59,7 +59,6 @@ const UniSearchBlock = ({ field, register, country, label, customKey, value1, on
         className={`w-full input input-sm input-bordered ${forceClass}`}
         autoComplete="one-time-code"
         name={customKey}
-        placeholder={customKey}
         //onChange={handleInputChange}
       />
       {showSuggestions && (
