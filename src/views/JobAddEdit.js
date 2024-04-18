@@ -113,6 +113,7 @@ const JobAddEdit = ({ job }) => {
     const dispatch = useDispatch();
     const userInfo = useSelector((state) => state.auth.userInfo);
     const employer = useSelector((state) => state.posts.employer);
+    const [secondCategory, setSecondCategory] = useState(null);
     const [startTime, setStartTime] = useState(Date.now());
     let defaultValues
     let buttonText
@@ -480,83 +481,133 @@ const JobAddEdit = ({ job }) => {
                     <div className="mt-[2rem] font-bold text-[#e74b7f]">Job Type</div>
                     <div className="col-start-2 w-full  flex flex-col  items-start ">
                         <label className="label-text font-bold pb-2 text-md">Master Category: General Job Type</label>
-                        <select className="select select-sm select-bordered w-full font-normal"
-                            {...register("master_category_job_type")}
-                        >
-                            {job_category['master_category_job_type'].map((type, index) => (
-                                <option key={index} value={type}>
-                                    {type}
-                                </option>
-                            ))}
-                        </select>
+                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                        {job_category["master_category_job_type"].map(
+                            (position, index) => (
+                            <div className=" w-1/4 flex ">
+                                <div className=" text-left">
+                                <input
+                                    type="radio"
+                                    className="radio radio-xs mr-1"
+                                    value={position}
+                                    {...register("master_category_job_type")}
+                                />
+                                </div>
+                                <label className={`text-xs text-left text-gray-600 `}>
+                                {position}
+                                </label>
+                            </div>
+                            )
+                        )}
+                        </ul>
                     </div>
                     <div className={`w-full  flex flex-col  items-start     
                     ${master_category_job_type === "All Teaching Jobs"
                                         ? "block"
                                         : "hidden"
                                     }`}>
-                        <label className="label-text font-bold pb-2 text-md mt-4">Subcategory: All Teaching Jobs</label>
-                        <select className="select select-sm select-bordered w-full font-normal"
-                            {...register("subcategory_academic_jobs")}
-                        >
-                            <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['All Teaching Jobs'].map((type, index) => (
-                                <option key={index} value={type}>
-                                    {type}
-                                </option>
-                            ))}
-                        </select>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: All Teaching Jobs</label>
+                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                        {job_category["All Teaching Jobs"].map((position, index) => (
+                            <div className=" w-1/4 flex ">
+                            <div className=" text-left">
+                                <input
+                                type="radio"
+                                className="radio radio-xs mr-1"
+                                value={position}
+                                {...register("subcategory_academic_jobs")}
+                                onChange={(e) => {
+                                    setSecondCategory(e.target.value);
+                                }}
+                                />
+                            </div>
+                            <label className={`text-xs text-left text-gray-600 `}>
+                                {position}
+                            </label>
+                            </div>
+                        ))}
+                        </ul>
                     </div>
                     <div className={` w-full  flex flex-col  items-start     
                     ${master_category_job_type === "Student Focused Support"
                                         ? "block"
                                         : "hidden"
                                     }`}>
-                        <label className="label-text text-md mt-2">Subcategory: Student Focused Support</label>
-                        <select className="select select-sm select-bordered w-full font-normal"
-                            {...register("subcategory_executive_jobs")}
-                        >
-                            <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Student Focused Support'].map((type, index) => (
-                                <option key={index} value={type}>
-                                    {type}
-                                </option>
-                            ))}
-                        </select>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Student Focused Support</label>
+                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                        {job_category["Student Focused Support"].map((position, index) => (
+                            <div className=" w-1/4 flex ">
+                            <div className=" text-left">
+                                <input
+                                type="radio"
+                                className="radio radio-xs mr-1"
+                                value={position}
+                                {...register("subcategory_executive_jobs")}
+                                onChange={(e) => {
+                                    setSecondCategory(e.target.value);
+                                }}
+                                />
+                            </div>
+                            <label className={`text-xs text-left text-gray-600 `}>
+                                {position}
+                            </label>
+                            </div>
+                        ))}
+                        </ul>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start     
+                    <div className={`w-full  flex flex-col  items-start     
           ${master_category_job_type === "Operations - Support Staff"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text  pb-2  text-md mt-4">Subcategory: Staff role-support / Admin</label>
-                        <select className="select select-sm select-bordered w-full font-normal"
-                            {...register("subcategory_administration_support")}
-                        >
-                            <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Operations - Support Staff'].map((type, index) => (
-                                <option key={index} value={type}>
-                                    {type}
-                                </option>
-                            ))}
-                        </select>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Staff role-support / Admin</label>
+                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                        {job_category["Operations - Support Staff"].map((position, index) => (
+                            <div className=" w-1/4 flex ">
+                            <div className=" text-left">
+                                <input
+                                type="radio"
+                                className="radio radio-xs mr-1"
+                                value={position}
+                                {...register("subcategory_administration_support")}
+                                onChange={(e) => {
+                                    setSecondCategory(e.target.value);
+                                }}
+                                />
+                            </div>
+                            <label className={`text-xs text-left text-gray-600 `}>
+                                {position}
+                            </label>
+                            </div>
+                        ))}
+                        </ul>
                     </div>
-                    <div className={` ml-[100px]  w-full  flex flex-col  items-start     
+                    <div className={`w-full  flex flex-col  items-start     
           ${master_category_job_type === "Leadership"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text  pb-2  text-md mt-4">Subcategory: Leadership Jobs</label>
-                        <select className="select select-sm select-bordered w-full font-normal"
-                            {...register("subcategory_hr_jobs")}
-                        >
-                            <option key="-1" value="" selected disabled hidden></option>
-                            {job_category['Leadership'].map((type, index) => (
-                                <option key={index} value={type}>
-                                    {type}
-                                </option>
-                            ))}
-                        </select>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Leadership Jobs</label>
+                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                        {job_category["Leadership"].map((position, index) => (
+                            <div className=" w-1/4 flex ">
+                            <div className=" text-left">
+                                <input
+                                type="radio"
+                                className="radio radio-xs mr-1"
+                                value={position}
+                                {...register("subcategory_hr_jobs")}
+                                onChange={(e) => {
+                                    setSecondCategory(e.target.value);
+                                }}
+                                />
+                            </div>
+                            <label className={`text-xs text-left text-gray-600 `}>
+                                {position}
+                            </label>
+                            </div>
+                        ))}
+                        </ul>
                     </div>
                     <div className={`w-full  flex flex-col  items-start   mt-2  `}>
                         <InputBlock2 className="font-bold text-md" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold text-md" />
