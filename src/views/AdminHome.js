@@ -243,7 +243,7 @@ function AdminHome(props) {
                 <img
                   width={150}
                   height={150}
-                  src="/jarrod.png"
+                  src="/Jarrod.png"
                   alt="How to Land Your Dream College Job: A Step-by-Step Guide"
                   className="rounded-3xl "
                 />
