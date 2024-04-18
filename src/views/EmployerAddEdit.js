@@ -610,7 +610,7 @@ const EmployerAddEdit = ({ employer }) => {
             }}
           />
           <button
-            className="btn btn-success w-[80%] mx-auto"
+            className="btn btn-success w-full mx-auto"
             onClick={async (e) => {
               // const response = await updateEmployer(record);
               // console.log(response)
