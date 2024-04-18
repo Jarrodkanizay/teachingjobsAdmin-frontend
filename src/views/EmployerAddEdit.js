@@ -18,7 +18,7 @@ import InputBlock2 from "./InputBlock2";
 import InputBlock4 from "./InputBlock4";
 import SelectBlock2 from "./SelectBlock2";
 import SelectBlock3 from "./SelectBlock3";
-import UniSearchBlock from "./UniSearchBlock";
+import SalesNotes from "./SalesNotes";
 import SelectBlockNew from "./SelectBlockNew";
 import SelectBlock1 from "./SelectBlock1";
 import { countries } from "../utils/data";
@@ -500,7 +500,7 @@ const EmployerAddEdit = ({ employer }) => {
               </div>
             </div>
           </div>
-          <div className="flex gap-4 pb-12">
+          <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">AJ Admin Agent</label>
             <div className="w-[50%] text-left">
               <select id="userDropdown"
@@ -515,7 +515,21 @@ const EmployerAddEdit = ({ employer }) => {
               </select>
             </div>
           </div>
-        
+          <div className="py-3">
+          <label className="w-full font-bold text-[#e74b7f] pt-2">Key Employer Contacts</label>
+          <div className="flex gap-4">
+            <label className=" text-right  font-bold">Input: Name, Job Title, Phone #, Email </label>
+
+          </div>
+          <textarea
+            id="description-input"
+            name="07_Nominee_Description"
+            className="w-full px-4 py-3 0 border border-black  rounded-lg text-black focus:outline-none focus:border-orange-500"
+            placeholder="Please Input: Name, Job Title, Phone #, Email"
+            {...register("KeyEmployerContacts")}
+            // onChange={handleSalesNoteChange}
+            />
+          </div>
           <div className = "font-bold text-[#e74b7f]">Location Details</div>
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Institution-Location</label>
@@ -612,7 +626,7 @@ const EmployerAddEdit = ({ employer }) => {
             }}
           />
           <button
-            className="btn btn-success w-[80%] mx-auto"
+            className="btn btn-success w-full mx-auto"
             onClick={async (e) => {
               // const response = await updateEmployer(record);
               // console.log(response)
@@ -628,6 +642,7 @@ const EmployerAddEdit = ({ employer }) => {
           </button>
         </div>
       </form>
+      {employer?.id >0  && <SalesNotes id={employer?.id} />}
     </div>
   );
   return (
