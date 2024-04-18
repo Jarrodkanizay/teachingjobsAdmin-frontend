@@ -513,7 +513,19 @@ const EmployerAddEdit = ({ employer }) => {
               </select>
             </div>
           </div>
-        
+          <label className="w-full font-bold text-[#e74b7f] pt-10">Key Employer Contacts</label>
+          <div className="flex gap-4">
+            <label className=" text-right  font-bold">Input: Name, Job Title, Phone #, Email </label>
+
+          </div>
+          <textarea
+            id="description-input"
+            name="07_Nominee_Description"
+            className="w-full px-4 py-3 0 border border-black  rounded-lg text-black focus:outline-none focus:border-orange-500"
+            placeholder="Please Input: Name, Job Title, Phone #, Email"
+            {...register("KeyEmployerContacts")}
+            // onChange={handleSalesNoteChange}
+          />
           <div className = "font-bold text-[#e74b7f]">Location Details</div>
           <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">Institution-Location</label>
@@ -562,29 +574,7 @@ const EmployerAddEdit = ({ employer }) => {
             </div>
           </div>
 
-          <label className="w-full font-bold text-[#e74b7f] pt-10">Sales Notes</label>
-          <div className="flex gap-4">
-            <label className=" text-right  font-bold">Sales Notes Update Date</label>
-            <div className="w-[50%] text-left">
-              {new Date(employer?.salesNoteUpdateDate).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: true,
-              })}
-              {/* <InputBlock4 type="text" field="salesNoteUpdateDate" label="salesNoteUpdateDate" register={register} errors={errors} forceClass="" /> */}
-            </div>
-          </div>
-          <textarea
-            id="description-input"
-            name="07_Nominee_Description"
-            className="w-full px-4 py-3 0 border border-black  rounded-lg text-black focus:outline-none focus:border-orange-500"
-            placeholder="Please write sales notes here"
-            {...register("salesNote")}
-            onChange={handleSalesNoteChange}
-          />
+          
           {/* <button
             className="btn btn-success w-[80%] mx-auto"
             onClick={async (e) => {
