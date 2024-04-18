@@ -49,11 +49,19 @@ const AddSalesNotes = ({ id }) => {
          
                     <div className="flex flex-start gap-1">
                         <label className="label-text text-xs">Action By:</label>
-                        <input
-                            type="text"
-                            className="text-center  md:text-left  border border-[#00aeef] text-gray-500 rounded-md focus:ring-orange-500 focus:border-orange-500"
+                 
+                        <select 
+                            className="text-xs"
                             {...register("actionBy")}
-                        />
+                        >
+                            <option value="">Select an Agent</option>
+                            {['Jarrod','John'].map((user,i) => (
+                                <option key={i} value={user}>
+                                    {user}
+                                </option>
+                            ))}
+                        </select>
+
                     </div>
                     <div className="flex flex-start gap-1">
                         <label className="label-text text-xs">Action Date:</label>
