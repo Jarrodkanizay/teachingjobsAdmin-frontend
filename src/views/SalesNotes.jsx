@@ -54,7 +54,7 @@ const MostRecentQA = ({ id }) => {
                             year: "numeric",
                         })}
                     </div>
-                    <div>WrittenBy:  &nbsp; {writtenBy}</div>
+                    <div>Written By:  &nbsp; {writtenBy}</div>
                 </div>
                 <div className="w-full text-left">{note}</div>
             </div>
