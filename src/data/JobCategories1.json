@@ -1,9 +1,9 @@
 {
   "master_category_job_type": [
     "All Teaching Jobs",
-    "Student Focused Support",
-    "Operations - Support Staff",
-    "Leadership"
+    "Student Support Jobs",
+    "School Support Jobs",
+    "School Leadership Jobs"
   ],
   "All Teaching Jobs": [
     "Kindergarten / ELC / Early Childhood Teacher",
@@ -19,7 +19,7 @@
     "Tutor",
     "Other Teaching Type"
   ],
-  "Student Focused Support": [
+  "Student Support Jobs": [
     "Boarding Staff",
     "Careers Advisor",
     "Chaplain/Priest",
@@ -34,7 +34,7 @@
     "Speech & Language Therapist/Pathologist",
     "Sports Coach"
   ],
-  "Operations - Support Staff": [
+  "School Support Jobs": [
     "Administrator/Clerk",
     "Advisor/Consultant",
     "Canteen Supervisor/Tuckshop Convenor",
@@ -51,7 +51,7 @@
     "Uniform",
     "Other Support Positions"
   ],
-  "Leadership": [
+  "School Leadership Jobs": [
     "Principal/Head of School",
     "Deputy/Assistant Head of School",
     "Head of Year",
