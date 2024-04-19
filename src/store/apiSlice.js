@@ -467,6 +467,20 @@ export const apiSlice = createApi({
             providesTags: ['salesNotes'],
             invalidatesTags: ['salesNotes'],
         }),
+        getSalesNotesByUser: builder.query({
+            query: (data) => ({
+                url: `/getSalesNotesByUser`,
+                method: 'POST',
+                body: data,
+                mode: 'cors',
+            }),
+            transformResponse: (responseData) => {
+                console.log(responseData)
+                return responseData.data
+            },
+            providesTags: ['salesNotesByUser'],
+            invalidatesTags: ['salesNotesByUser'],
+        }),
         addSalesNotes: builder.mutation({
             query: (data) => ({
                 url: `/addSalesNotes`,
@@ -478,7 +492,7 @@ export const apiSlice = createApi({
                 console.log(responseData)
                 return responseData
             },
-            invalidatesTags: ['salesNotes'],
+            invalidatesTags: ['salesNotes', 'salesNotesByUser'],
         }),
         getEmployerSuggestions: builder.query({
             query: ({ query, country }) => ({
@@ -508,6 +522,7 @@ export const apiSlice = createApi({
     }),
 })
 export const {
+    useGetSalesNotesByUserQuery,
     useGetSalesNotesQuery,
     useAddSalesNotesMutation,
     useGetJobQtyAgentQuery,

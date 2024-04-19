@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import SearchResultsEmployers from "./SearchResultsEmployers";
 import { setJob, setId, setEmployer } from '../store/postsSlice'
 import {
+  useGetSalesNotesByUserQuery,
   useGetUserByIdQuery,
 } from "../store/apiSlice";
 function AdminHome(props) {
@@ -34,50 +35,56 @@ function AdminHome(props) {
     console.log("============33333=========================", company_name, id, Region, country)
     setEmployerID(id)
     dispatch(setEmployer({ company_name, employer_id: id }))
-
     navigate(`/employers-center/${id}/`);
     //setValue("description", editorState);
   };
+  const {
+    data: dataSalesNotes,
+    isLoading: isLoadingSalesNotes,
+    isSuccess: isSuccessSalesNotes,
+  } = useGetSalesNotesByUserQuery({ id: userInfo.id })
+  if (isSuccess && dataSalesNotes?.length > 0) {
+    console.log("data", data)
+    content = dataSalesNotes.map(({ date, note, actionBy, actionDate, writtenBy }, key) => (
+      <div
+        className=' border rounded'
+        key={key}
+      >
+        <div className="w-full flex justify-between  text-left text-xs font-bold">
+          <div>Date: &nbsp;
+            {new Date(date).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            })}</div>
+          <div>
+            Follow-up By: &nbsp; {actionBy}
+          </div>
+          <div>
+            Follow-up Date: &nbsp; {actionDate && new Date(actionDate).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </div>
+          <div>Written By:  &nbsp; {writtenBy}</div>
+        </div>
+        <div className="w-full text-left">{note}</div>
+      </div>
+    ))
+  }
   return (
     <div className=" flex  flex-col px-6  gap-8 mt-4">
-      {/* <Link
-          to={`/post-a-job/`}
-          className="text-[#f4a10c] w-[20rem] h-[30px] font-bold shadow-md rounded px-2  text-center border border-[#f4a10c] hover:bg-gradient-to-r from-gray-400 via-amber-500 to-amber-500 font-bold hover:text-white "
-          activeClassName="post-a-job"
-        >
-          Post a Job
-        </Link> */}
-      {/* <UniSearchBlock
-          country=""
-          register={register}
-          field="employer_name"
-          customKey="employer_name"
-          label="employer_name"
-          value1=""
-          forceclassName="mb-6"
-          onChange={onEditorStateChange1}
-        /> */}
-      {/* <UniSearchBlock
-          country="Australia"
-          register={register}
-          field="employer_name1"
-          customKey="employer_name1"
-          label="employer_name1"
-          value1=""
-          forceclassName="mb-6"
-          onChange={onEditorStateChange1}
-        /> */}
-              <h1 className="lg:text-4xl font-bold text-black mb-8">
-                Welcome {userInfo.firstName} !</h1>
+      <h1 className="lg:text-4xl font-bold text-black mb-8">
+        Welcome {userInfo.firstName} !</h1>
       <div className="flex justify-between w-full gap-8">
-
         <div className="w-1/2 mr-8">
           {/* Hero banner */}
           <div className=" flex-col   rounded-xl ">
-
             <div>
-
-
               {/* <Link className="btn btn-aj" href="/post-a-job">
                 Post a Job
               </Link> */}
@@ -89,17 +96,14 @@ function AdminHome(props) {
               {
                 data &&
                 <div dangerouslySetInnerHTML={{ __html: data.task }} />
-
               }
             </div>
-
           </div>
+          {content }
           <SearchResults1 />
         </div>
         <div className="w-1/2">
-        
-        <h1 className=" text-[#e74b7f] font-bold">Manilla Team</h1>
-
+          <h1 className=" text-[#e74b7f] font-bold">Manilla Team</h1>
           <div className="flex gap-4 mb-6">
             <div className="grid grid-cols-3 gap-5 mt-4">
               <figure className="    rounded-3xl ">
@@ -115,8 +119,6 @@ function AdminHome(props) {
                   The Don
                 </h2>
               </figure>
-
-
               <figure className="    rounded-3xl ">
                 <img
                   width={150}
@@ -130,7 +132,6 @@ function AdminHome(props) {
                   laira andrea austria
                 </h2>
               </figure>
-
               <figure className="   rounded-3xl ">
                 <img
                   width={150}
@@ -144,8 +145,6 @@ function AdminHome(props) {
                   joan santos
                 </h2>
               </figure>
-
-
               <figure className="   rounded-3xl">
                 <img
                   width={150}
@@ -159,8 +158,6 @@ function AdminHome(props) {
                   lexphil de vera
                 </h2>
               </figure>
-
-
               <figure className="   rounded-3xl ">
                 <img
                   width={150}
@@ -174,8 +171,6 @@ function AdminHome(props) {
                   luigi ynaki jardin
                 </h2>
               </figure>
-
-
               <figure className="    rounded-3xl ">
                 <img
                   width={150}
@@ -189,7 +184,6 @@ function AdminHome(props) {
                   Marcus
                 </h2>
               </figure>
-
               <figure className="   rounded-3xl">
                 <img
                   width={150}
@@ -203,9 +197,6 @@ function AdminHome(props) {
                   jhon michael cruz
                 </h2>
               </figure>
-
-
-
               <figure className="    rounded-3xl ">
                 <img
                   width={150}
@@ -219,7 +210,6 @@ function AdminHome(props) {
                   mary rose joana pecson
                 </h2>
               </figure>
-
               <figure className="   rounded-3xl">
                 <img
                   width={150}
@@ -235,7 +225,6 @@ function AdminHome(props) {
               </figure>
             </div>
           </div>
-          
           <h1 className=" text-[#e74b7f] font-bold">Melbourne Team</h1>
           <div className="flex gap-4">
             <div className="grid grid-cols-3 gap-5 mt-2">
@@ -305,7 +294,6 @@ function AdminHome(props) {
                 </h2>
               </figure>
             </div>
-
           </div>
         </div>
       </div>

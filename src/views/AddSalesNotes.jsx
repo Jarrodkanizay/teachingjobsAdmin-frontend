@@ -55,9 +55,9 @@ const AddSalesNotes = ({ id }) => {
                             {...register("actionBy")}
                         >
                             <option value="">Select an Agent</option>
-                            {['Jarrod','John'].map((user,i) => (
-                                <option key={i} value={user}>
-                                    {user}
+                            {[{ name: 'Jarrod', id: '4' }, { name: 'John', id: '90' }].map(({name, id},i) => (
+                                <option key={i} value={id}>
+                                    {name}
                                 </option>
                             ))}
                         </select>
