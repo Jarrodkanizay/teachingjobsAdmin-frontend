@@ -430,7 +430,9 @@ const JobAddEdit = ({ job }) => {
                         forceClass="mb-6"
                         onChange={onEditorStateChange1}
                     />
-
+                                      
+                    <SelectBlock2 list={['Public School', 'Catholic School']} field="schoolType" label="School Type" register={register} errors={errors} forceClass="join-item rounded-l-none min-h-[34px] font-bold" />
+                    {/* <InputBlock2 type="text" field="schoolType" label="" register={register} errors={errors} forceClass="" /> */}
                     <label className="label-text  text-md font-bold">Job Title</label>
                     <InputBlock2 type="text" field="title" label="" register={register} errors={errors} forceClass="" />
                     <div className="flex gap-12 font-bold">
