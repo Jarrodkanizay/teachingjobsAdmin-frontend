@@ -719,8 +719,8 @@ const JobAddEdit = ({ job }) => {
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <SelectBlock2 list={regions} field="region" label="Region" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" />
-                                <SelectBlock2 list={countries} field="country" label="Country" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" />
+                                <SelectBlock2 list={regions} field="region" label="Region" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" defaultValue="Australia"/>
+                                <SelectBlock2 list={countries} field="country" label="Country" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" defaultValue="Australia" />
                             </div>
                         </div>
                     </div>

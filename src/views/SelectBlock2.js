@@ -1,9 +1,10 @@
 import React from "react";
-const SelectBlock2 = ({ list, register, label, field, errors, forceClass }) => {
+
+const SelectBlock2 = ({ list, register, label, field, errors, forceClass, defaultValue }) => {
   return (
     <div className={` w-full  flex flex-col  gap-1   items-start   ${forceClass}`}>
       <label className="label-text text-md">{label}</label>
-      <select {...register(field)} className="select select-sm select-bordered w-full font-normal"  >
+      <select {...register(field)} className="select select-sm select-bordered w-full font-normal" defaultValue={defaultValue}>
         {list.map((el, i) => (
           <option key={i} value={el}>
             {el}
@@ -16,4 +17,5 @@ const SelectBlock2 = ({ list, register, label, field, errors, forceClass }) => {
     </div>
   );
 };
+
 export default SelectBlock2;
