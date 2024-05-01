@@ -693,7 +693,7 @@ const EmployerAddEdit = ({ employer }) => {
           </button>
         </div>
       </form>
-      {employer?.id >0  && <SalesNotes id={employer?.id} />}
+      {employer?.id >=0  && <SalesNotes id={employer?.id} />}
     </div>
   );
   return (
