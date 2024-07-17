@@ -628,6 +628,92 @@ const EmployerAddEdit = ({ employer }) => {
               <InputBlock4 type="text" field="email" label="email" register={register} errors={errors} forceClass="" />
             </div>
           </div>
+          <div className = "mt-[2rem] font-bold text-[#e74b7f]">Others</div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Key Employer Contacts</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="KeyEmployerContacts" label="KeyEmployerContacts" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">School Type</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="schoolType" label="schoolType" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Personal Email</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="personalEmail" label="personalEmail" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">LinkedIn</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="LinkedIn" label="LinkedIn" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">School Level</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="schoolLevel" label="schoolLevel" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Suburb</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="suburb" label="suburb" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Postal Code</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="postalCode" label="postalCode" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Phone</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="phone" label="phone" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Indicator</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="indicator" label="indicator" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Total Staff</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="totalStaff" label="totalStaff" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Main School Campus</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="mainSchoolCampus" label="mainSchoolCampus" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Sector</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="sector" label="sector" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Metro Country</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="metroCountry" label="metroCountry" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">Job Title</label>
+            <div className="w-[50%] text-left">
+              <InputBlock4 type="text" field="jobtitle" label="jobtitle" register={register} errors={errors} forceClass="" />
+            </div>
+          </div>
+ 
 
           <label className="w-full font-bold text-[#e74b7f] mt-[2rem]">Sales Notes</label>
           <div className="flex gap-4">
