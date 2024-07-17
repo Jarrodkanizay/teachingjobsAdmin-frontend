@@ -13,7 +13,6 @@ import {
 } from "../store/apiSlice";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import Payment2 from "./Payment2";
 import { useParams } from "react-router-dom";
 import InputBlock from "../components/ui/InputPostAJob";
 import InputBlock2 from "./InputBlock2";

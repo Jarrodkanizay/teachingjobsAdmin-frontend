@@ -6,8 +6,8 @@ import Invoices from "./views/Invoices";
 import Invoice from "./views/Invoice";
 // import JobPosts from "./views/JobPosts";
 import Home from "./views/Home";
-import Payment from "./views/Payment";
-import Payment1 from "./views/Payment1";
+// import Payment from "./views/Payment";
+// import Payment1 from "./views/Payment1";
 import PaymentPublic from "./views/auth/PaymentPublic";
 import Completion from "./views/Completion";
 import TermsConditions from "./views/TermsConditions";
@@ -457,7 +457,6 @@ const AppRouter = () => {
               element={<NominateOutstandingStudentOfTheYear />}
             />
             <Route exact path="/paymentPublic/:id" element={<PaymentPublic />} />
-            <Route exact path="/payment/:id" element={<Payment />} />
             <Route exact path="/post-a-job-form/" element={<PostAJobForm />} />
             <Route element={<PersistLogin />}>
               <Route exact path="/" element={<Layout1 />}>
@@ -493,8 +492,6 @@ const AppRouter = () => {
                 <Route exact path="/post-a-job/" element={<JobCreate />} />
                 <Route exact path="/JobLoadingActivity" element={<JobLoadingActivity />} />
                 <Route exact path="/employer-center/quick-pay-post/" element={<QuickPayPost />} />
-                <Route exact path="/payment/:id" element={<Payment />} />
-                <Route exact path="/payment/" element={<Payment1 />} />
               </Route>
             </Route>
           </Route>
