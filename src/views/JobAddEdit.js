@@ -611,6 +611,39 @@ const JobAddEdit = ({ job }) => {
                         ))}
                         </ul>
                     </div>
+                    <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                        {job_category["All Teaching Jobs"].map((category, index) => (
+                            <div
+                                className={` flex flex-col items-start 
+          ${secondCategory === category &&
+                                    master_category_job_type === "All Teaching Jobs"
+                                        ? "block"
+                                        : "hidden"
+                                    }`}
+                            >
+                                <label className="label-text pb-2  text-lg mt-4">
+                                    {category} Specialties
+                                </label>
+                                <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                                    {job_category[category]?.map((position, index) => (
+                                        <div className=" w-1/4 flex ">
+                                            <div className=" text-left">
+                                                <input
+                                                    type="radio"
+                                                    className="radio radio-warning radio-xs mr-1"
+                                                    value={position}
+                                                    {...register("thirdcategory")}
+                                                />
+                                            </div>
+                                            <label className={`text-xs text-left text-gray-600 `}>
+                                                {position}
+                                            </label>
+                                        </div>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </ul>
                     <div className={`w-full  flex flex-col  items-start   mt-2  `}>
                         <InputBlock2 className="font-bold text-md" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold text-md" />
                     </div>
