@@ -39,74 +39,60 @@ const validationSchema = yup.object({
     // email: yup.string().required('Missing email').email('Invalid email format'),
     //password: yup.string().required('Missing password'),
 }).required()
-const academic_positions =
-{
-    "Faculty Positions": [
-        "Lecturer/Instructor",
-        "Senior Lecturer",
-        "Sessional Lecturer",
-        "Tutor",
-        "Teaching Assistant",
-        "Adjunct Faculty",
-        "Post-Doc",
-        "Tenure",
-        "Tenure-track",
+const academic_positions = {
+    "Teaching and Lecturing": [
+        "Kindergarten / ELC / Early Childhood",
+        "Primary Teacher",
+        "Middle School Teacher",
+        "Secondary Teacher",
+        "Adult / Tertiary",
+        "Diverse Learning / Special Needs",
+        "Indigenous Education",
+        "Teacher Librarian",
+        "Tutors / Coaching"
     ],
-    "Research Positions": [
-        "Research",
-        "Scientist/Associate",
-        "Senior Research Assistant",
-        "Research Assistant",
-        "Research Fellow",
-        "Post Doc Research Fellow",
-        "Research Coordinator",
-        "Research Manager",
-        "Research Technician",
-        "Faculty Researcher"
+    "Leadership": [
+        "Bursar",
+        "Business / Finance Manager",
+        "Chaplains / Pastoral Care",
+        "Coordinator",
+        "Curriculum / Learning",
+        "Deputy / Assistant Head of School",
+        "Development / Strategy / Process",
+        "Head of Faculty / Department",
+        "Human Resources",
+        "Legal Officer",
+        "Marketing / Communications",
+        "Principal / Head of School",
+        "Risk / Compliance / Safety"
+    ],
+    "Non-Teaching/Support": [
+        "Admin / SSO / Non-Teaching",
+        "Boarding Staff",
+        "Bus Driver",
+        "Canteen",
+        "Career Advisors",
+        "Cleaners",
+        "Counsellors / Psychologists",
+        "Diverse Learning / Special Needs",
+        "Early Childhood Worker",
+        "Finance / Accounts",
+        "Gardeners / Maintenance",
+        "HR / Recruitment Officer",
+        "Instrumental Tuition",
+        "IT / Tech Support",
+        "Laboratory Technician",
+        "Learning Support / Teacher's Aide",
+        "Library Services",
+        "Nurse / First Aid Officer",
+        "OSHC",
+        "Outdoor Education",
+        "Social Worker",
+        "Speech Pathologists",
+        "Sports Coach",
+        "Uniform"
     ]
-    ,
-    "Professorial Positions": [
-        "Professor",
-        "Assistant Professor",
-        "Associate Professor",
-        "Adjunct Professor",
-        "Visiting Professor",
-        "Research Professor",
-        "Clinical Professor/Prof of Practice",
-        "Emeritus Professor",
-        "Visiting Scholar",
-        "Visiting Fellow"
-    ],
-    "Executive Positions": [
-        "Assistant/Associate Head",
-        "Dean",
-        "Assistant/Associate Dean",
-        "Director/Manager",
-        "Assistant Director",
-        "Dept. Head/Head/Chair",
-        "Endowed",
-        "Program Coordinator",
-        "Clinical Chair",
-    ],
-    "Others": [
-        "Sessional Academic",
-        "Clinical Educator",
-        "Academic Advisor",
-        "Curriculum Developer",
-        "Educational Technologist",
-        "Learning Specialist",
-        "Academic Coach",
-    ],
-    "Others1": [
-        "Lab Manager",
-        "Program Director",
-        "Academic Coordinator",
-        "Exam Supervisor",
-        "Librarian",
-        "Faculty Development Specialist",
-        "Instructional Designer"
-    ],
-}
+};
 const JobAddEdit = ({ job }) => {
     console.log(job)
     const isAddMode = !job
@@ -128,6 +114,9 @@ const JobAddEdit = ({ job }) => {
     //   defaultValue: "default", // default value before the render
     // })
     let master_category_job_type = watch("master_category_job_type");
+    if (!(master_category_job_type === 'Teaching and Lecturing' || master_category_job_type === 'Non-Teaching/Support' || master_category_job_type === 'Leadership')) {
+        master_category_job_type = 'Teaching and Lecturing'
+    }
     //alert(master_category_job_type)
     const [sendEmail, {
         isSuccess: isSuccessSendEmail,
@@ -160,13 +149,17 @@ const JobAddEdit = ({ job }) => {
                 setValue('featured', true)
             }
             setValue("headlineOnly", employer.clientType === "HeadlineOnly");
-            master_category_job_type = 'All Teaching Jobs'
-            setValue('master_category_job_type', 'All Teaching Jobs')
+            master_category_job_type = 'Teaching and Lecturing'
+            setValue('master_category_job_type', 'Teaching and Lecturing')
         } else {
             console.log("=========Job=========", job)
             buttonText = "Update Job"
             reset(job);
-            master_category_job_type = job.master_category_job_type
+            if (job.master_category_job_type === 'Teaching and Lecturing' || job.master_category_job_type === 'Non-Teaching/Support' || job.master_category_job_type === 'Leadership') {
+                master_category_job_type = job.master_category_job_type
+            } else {
+                master_category_job_type = 'Teaching and Lecturing'
+            }
             setValue('activation_date', new Date(job.activation_date).toISOString().split('T')[0])
             setValue('expiration_date', new Date(job.expiration_date).toISOString().split('T')[0])
             dispatch(setEmployer({ company_name: job?.employer?.company_name, employer_id: job.employer_id, logo: job.employer?.logo, employerPageURL: job.employer.employerPageURL, clientType: job.clientType }))
@@ -260,7 +253,6 @@ const JobAddEdit = ({ job }) => {
         setValue("country", country);
         setValue("logo", logo);
         // setValue("clientType", clientType);
-
         //alert(id)
         dispatch(setEmployer({ company_name, employer_id, logo, employerPageURL, clientType }))
         if (employer_id) getCampuses({ id: employer_id })
@@ -334,6 +326,7 @@ const JobAddEdit = ({ job }) => {
         }
         navigate(`/jobs/edit/${data.id}`);
     }
+    //alert(master_category_job_type)
     if (isSuccessPostAJob || job) {
         console.log(job)
         console.log(dataPostAJob)
@@ -378,7 +371,6 @@ const JobAddEdit = ({ job }) => {
             )
         }
     }
-
     content = (
         <div className="">
             <p className="text-3xl font-bold text-black shadow-xl px-2 pb-4 mt-4 mb-6">Post a Job</p>
@@ -386,7 +378,6 @@ const JobAddEdit = ({ job }) => {
                 className="w-full flex justify-between ">
                 <div className="w-[49%] flex flex-col gap-2">
                     <div className="flex justify-start gap-1">
-
                         <ul className=" flex justify-start items-end gap-4   px-1  ">
                             {/* <div className="card w-[100px] h-[100px] bg-base-100 shadow-xl ">
                                 <div className="w-[100px] h-[100px] ">
@@ -416,10 +407,7 @@ const JobAddEdit = ({ job }) => {
                             </div> */}
                         </div>
                     </div>
-
-
                     <div className="mt-[2rem] font-bold text-[#e74b7f]">General Details</div>
-
                     <label className="label-text font-bold text-md">Institution Name</label>
                     <UniSearchBlock
                         register={register}
@@ -430,26 +418,25 @@ const JobAddEdit = ({ job }) => {
                         forceClass="mb-6"
                         onChange={onEditorStateChange1}
                     />
-                                      
                     <SelectBlock2 list={['Public School', 'Private School', 'Catholic School', 'Independent School']} field="schoolType" label="School Type" register={register} errors={errors} forceClass="join-item rounded-l-none min-h-[34px] font-bold" />
                     {/* <InputBlock2 type="text" field="schoolType" label="" register={register} errors={errors} forceClass="" /> */}
                     <label className="label-text  text-md font-bold">Job Title</label>
                     <InputBlock2 type="text" field="title" label="" register={register} errors={errors} forceClass="" />
                     <div className="flex gap-12 font-bold">
-                    <div className="flex items-center gap-1">
-                        <input type="checkbox" {...register('featured')} className="radio radio-xs mr-1" />
-                        <label className="label-text text-sm">Featured</label>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <div>
-                            <input type="checkbox" {...register('internalonly')} className="radio radio-xs mr-1" />
-                            <label className="label-text text-sm">Internal Only i.e: unlimited advertisers</label>
+                        <div className="flex items-center gap-1">
+                            <input type="checkbox" {...register('featured')} className="radio radio-xs mr-1" />
+                            <label className="label-text text-sm">Featured</label>
                         </div>
-                    </div>
-                    <div className="flex items-center gap-1">
-                        <input type="checkbox" {...register('headlineOnly')} className="radio radio-xs mr-1" />
-                        <label className="label-text text-sm">Headline Only</label>
-                    </div>
+                        <div className="flex flex-col gap-1">
+                            <div>
+                                <input type="checkbox" {...register('internalonly')} className="radio radio-xs mr-1" />
+                                <label className="label-text text-sm">Internal Only i.e: unlimited advertisers</label>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <input type="checkbox" {...register('headlineOnly')} className="radio radio-xs mr-1" />
+                            <label className="label-text text-sm">Headline Only</label>
+                        </div>
                     </div>
                     <div className="mb-6 mt-4">
                         <label className="label-text pb-2  text-md mt-4 font-bold">Job Description</label>
@@ -484,139 +471,112 @@ const JobAddEdit = ({ job }) => {
                     <div className="col-start-2 w-full  flex flex-col  items-start ">
                         <label className="label-text font-bold pb-2 text-md">Master Category: General Job Type</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["master_category_job_type"].map(
-                            (position, index) => (
-                            <div className=" w-1/4 flex ">
-                                <div className=" text-left">
-                                <input
-                                    type="radio"
-                                    className="radio radio-xs mr-1"
-                                    value={position}
-                                    {...register("master_category_job_type")}
-                                />
-                                </div>
-                                <label className={`text-xs text-left text-gray-600 `}>
-                                {position}
-                                </label>
-                            </div>
-                            )
-                        )}
+                            {job_category["master_category_job_type"].map(
+                                (position, index) => (
+                                    <div className=" w-1/4 flex ">
+                                        <div className=" text-left">
+                                            <input
+                                                type="radio"
+                                                className="radio radio-xs mr-1"
+                                                value={position}
+                                                {...register("master_category_job_type")}
+                                            />
+                                        </div>
+                                        <label className={`text-xs text-left text-gray-600 `}>
+                                            {position}
+                                        </label>
+                                    </div>
+                                )
+                            )}
                         </ul>
                     </div>
                     <div className={`w-full  flex flex-col  items-start     
-                    ${master_category_job_type === "All Teaching Jobs"
-                                        ? "block"
-                                        : "hidden"
-                                    }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: All Teaching Jobs</label>
+                    ${master_category_job_type === "Teaching and Lecturing"
+                            ? "block"
+                            : "hidden"
+                        }`}>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Teaching and Lecturing</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["All Teaching Jobs"].map((position, index) => (
-                            <div className=" w-1/4 flex ">
-                            <div className=" text-left">
-                                <input
-                                type="radio"
-                                className="radio radio-xs mr-1"
-                                value={position}
-                                {...register("subcategory_academic_jobs")}
-                                onChange={(e) => {
-                                    setSecondCategory(e.target.value);
-                                }}
-                                />
-                            </div>
-                            <label className={`text-xs text-left text-gray-600 `}>
-                                {position}
-                            </label>
-                            </div>
-                        ))}
+                            {job_category["Teaching and Lecturing"].map((position, index) => (
+                                <div className=" w-1/4 flex ">
+                                    <div className=" text-left">
+                                        <input
+                                            type="radio"
+                                            className="radio radio-xs mr-1"
+                                            value={position}
+                                            {...register("subcategory_academic_jobs")}
+                                            onChange={(e) => {
+                                                setSecondCategory(e.target.value);
+                                            }}
+                                        />
+                                    </div>
+                                    <label className={`text-xs text-left text-gray-600 `}>
+                                        {position}
+                                    </label>
+                                </div>
+                            ))}
                         </ul>
                     </div>
                     <div className={` w-full  flex flex-col  items-start     
-                    ${master_category_job_type === "Student Support Jobs"
-                                        ? "block"
-                                        : "hidden"
-                                    }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Student Support Jobs</label>
-                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["Student Support Jobs"].map((position, index) => (
-                            <div className=" w-1/4 flex ">
-                            <div className=" text-left">
-                                <input
-                                type="radio"
-                                className="radio radio-xs mr-1"
-                                value={position}
-                                {...register("subcategory_executive_jobs")}
-                                onChange={(e) => {
-                                    setSecondCategory(e.target.value);
-                                }}
-                                />
-                            </div>
-                            <label className={`text-xs text-left text-gray-600 `}>
-                                {position}
-                            </label>
-                            </div>
-                        ))}
-                        </ul>
-                    </div>
-                    <div className={`w-full  flex flex-col  items-start     
-                    ${master_category_job_type === "School Support Jobs"
+                    ${master_category_job_type === "Non-Teaching/Support"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: School Support Jobs</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Non-Teaching/Support</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["School Support Jobs"].map((position, index) => (
-                            <div className=" w-1/4 flex ">
-                            <div className=" text-left">
-                                <input
-                                type="radio"
-                                className="radio radio-xs mr-1"
-                                value={position}
-                                {...register("subcategory_administration_support")}
-                                onChange={(e) => {
-                                    setSecondCategory(e.target.value);
-                                }}
-                                />
-                            </div>
-                            <label className={`text-xs text-left text-gray-600 `}>
-                                {position}
-                            </label>
-                            </div>
-                        ))}
+                            {job_category["Non-Teaching/Support"].map((position, index) => (
+                                <div className=" w-1/4 flex ">
+                                    <div className=" text-left">
+                                        <input
+                                            type="radio"
+                                            className="radio radio-xs mr-1"
+                                            value={position}
+                                            {...register("subcategory_executive_jobs")}
+                                            onChange={(e) => {
+                                                setSecondCategory(e.target.value);
+                                            }}
+                                        />
+                                    </div>
+                                    <label className={`text-xs text-left text-gray-600 `}>
+                                        {position}
+                                    </label>
+                                </div>
+                            ))}
                         </ul>
                     </div>
                     <div className={`w-full  flex flex-col  items-start     
-          ${master_category_job_type === "School Leadership Jobs"
+          ${master_category_job_type === "Leadership"
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: School Leadership Jobs</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Leadership</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["School Leadership Jobs"].map((position, index) => (
-                            <div className=" w-1/4 flex ">
-                            <div className=" text-left">
-                                <input
-                                type="radio"
-                                className="radio radio-xs mr-1"
-                                value={position}
-                                {...register("subcategory_hr_jobs")}
-                                onChange={(e) => {
-                                    setSecondCategory(e.target.value);
-                                }}
-                                />
-                            </div>
-                            <label className={`text-xs text-left text-gray-600 `}>
-                                {position}
-                            </label>
-                            </div>
-                        ))}
+                            {job_category["Leadership"].map((position, index) => (
+                                <div className=" w-1/4 flex ">
+                                    <div className=" text-left">
+                                        <input
+                                            type="radio"
+                                            className="radio radio-xs mr-1"
+                                            value={position}
+                                            {...register("subcategory_hr_jobs")}
+                                            onChange={(e) => {
+                                                setSecondCategory(e.target.value);
+                                            }}
+                                        />
+                                    </div>
+                                    <label className={`text-xs text-left text-gray-600 `}>
+                                        {position}
+                                    </label>
+                                </div>
+                            ))}
                         </ul>
                     </div>
-                    <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
-                        {job_category["All Teaching Jobs"].map((category, index) => (
+                    {/* <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                        {job_category["Teaching and Lecturing"].map((category, index) => (
                             <div
                                 className={` flex flex-col items-start 
           ${secondCategory === category &&
-                                    master_category_job_type === "All Teaching Jobs"
+                                    master_category_job_type === "Teaching and Lecturing"
                                         ? "block"
                                         : "hidden"
                                     }`}
@@ -643,121 +603,34 @@ const JobAddEdit = ({ job }) => {
                                 </ul>
                             </div>
                         ))}
-                    </ul>
-                    <div className={`w-full  flex flex-col  items-start   mt-2  `}>
+                    </ul> */}
+                    {/* <div className={`w-full  flex flex-col  items-start   mt-2  `}>
                         <InputBlock2 className="font-bold text-md" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold text-md" />
-                    </div>
-                    <div className={`flex flex-col gap-2 mb-6 mt-2`}>
-                        {/* <SelectBlock2 list={position_type} field="position_type" label="Academic Position Type" register={register} errors={errors} forceClass=" font-bold" /> */}
-                        <div className={`flex flex-col gap-2  ${master_category_job_type === "Academic / Faculty"
-                            ? "block"
-                            : "hidden"
-                            }`}>
-                            <label className="label-text font-bold text-lg">Academic Position Types:</label>
-                            <div className="flex flex-wrap gap-4">
-                                {Object.entries(academic_positions).map(([category, positions]) => (
-                                    <div key={category} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
-                                        {category === "Others" && <h2 className="text-base font-black underline mb-2">{category}</h2>}
-                                        <ul className="list-none p-0 mb-4">
-                                            {positions.map((position, index) => (
-                                                <div className="flex gap-1">
-                                                    <div className=" text-left">
-                                                        <input type="checkbox" value={position}
-                                                            defaultChecked={job?.positiontypes?.some((p) => p.positionType === position)}
-                                                            {...register('positiontypes')}
-                                                        />
-                                                    </div>
-                                                    <label className={`text-sm text-left text-gray-600 ${(index === 0 && category !== "Others" && category !== "Others1") ? 'font-black underline' : ''}`}>{position}</label>
-                                                </div>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        {/* <div className="flex flex-wrap gap-2 mb-1 ">
-                            {academic_positions.map((position) => (
-                                <div className="flex gap-1">
-                                    <label className="text-sm text-right  font-bold">{position}
-                                    </label>
+                    </div> */}
+                    <div className={` w-full  flex flex-col  items-start     
+                  `}>
+                        <label className="label-text font-bold pb-2  text-md mt-4">{`${master_category_job_type} Positions`}</label>
+                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                            {academic_positions[master_category_job_type].map((position, index) => (
+                                <div key={index} className=" w-1/4 flex ">
                                     <div className=" text-left">
-                                        <input type="checkbox" value={position}
-                                            defaultChecked={job?.positiontypes.some((p) => p.positionType === position)}
-                                            {...register('positiontypes')}
+                                        <input
+                                            key={Math.random()}
+                                            type="checkbox"
+                                            value={position}
+                                            defaultChecked={job?.positiontypes.some(
+                                                (p) => p.positionType === position
+                                            )}
+                                            {...register("positiontypes")}
                                         />
                                     </div>
+                                    <label className={`text-xs text-left text-gray-600 `}>
+                                        {position}
+                                    </label>
                                 </div>
                             ))}
-                        </div> */}
-                        <SelectBlock2 list={job_type} field="job_type" label="Employment Type" register={register} errors={errors} forceClass=" font-bold" />
-                        <div className="mt-[2rem] font-bold text-[#e74b7f]">Location Details</div>
-                        <div>
-                            <InputBlock2 className="font-bold" type="text" field="location" label="Job Location (use second box for auto-fill)" register={register} errors={errors} forceClass="font-bold" />
-                            <Autocomplete
-                                className="border-2 rounded mt-2 text-pink-400"
-                                style={{ width: "100%" }}
-                                ref={inputRef}
-                                apiKey="AIzaSyCKEfoOIPz8l_6A8BByD3b3-ncwza8TNiA"
-                                {...register("location")}
-                                onPlaceSelected={(place) =>
-                                    setValue("location", place.formatted_address)
-                                }
-                                // onPlaceSelected={(selected, a, c) => {
-                                //   console.log(selected,a,c);
-                                //   setValue("location", selected)
-                                // }}
-                                options={{
-                                    types: ["geocode", "establishment"],
-                                    //componentRestrictions: { country: "Australia" },
-                                }}
-                                //onPlaceSelected={(place) =>
-                                //formik.setFieldValue("countryAnother", place.formatted_address)
-                                //}
-                                onChange={e => setValue("location", e.target.value)}
-                            //onChange={e => console.log(e)}
-                            />
-                            <div className="flex items-center justify-start mt-4">
-                                <div className="form-control items-start mb-2 mr-4">
-                                    <label className="flex items-start justify-start label cursor-pointer">
-                                        <input
-                                            {...register("remote")}
-                                            type="radio"
-                                            className="radio radio-xs mr-1"
-                                            value="Onsite"
-                                        />
-                                        <span className="label-text font-bold pb-2  text-sm">Onsite</span>
-                                    </label>
-                                </div>
-                                <div className="form-control items-start mb-2 mr-4">
-                                    <label className="flex items-start justify-start label cursor-pointer">
-                                        <input
-                                            {...register("remote")}
-                                            type="radio"
-                                            className="radio radio-xs mr-1"
-                                            value="Remote"
-                                        />
-                                        <span className="label-text font-bold pb-2  text-sm">Remote</span>
-                                    </label>
-                                </div>
-                                <div className="form-control items-start mb-2">
-                                    <label className="flex items-start justify-start label cursor-pointer">
-                                        <input
-                                            {...register("remote")}
-                                            type="radio"
-                                            className="radio radio-xs mr-1"
-                                            value="Hybrid"
-                                        />
-                                        <span className="label-text font-bold pb-2  text-sm">Hybrid</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="flex gap-2">
-                                <SelectBlock2 list={regions} field="region" label="Region" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" defaultValue="Australia"/>
-                                <SelectBlock2 list={countries} field="country" label="Country" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" defaultValue="Australia" />
-                            </div>
-                        </div>
+                        </ul>
                     </div>
-                    
                     <div className="mt-[2rem] font-bold text-[#e74b7f]">Salary Range</div>
                     <div className="join flex mb-6 gap-2">
                         <div className="max-w-[80px]">
