@@ -39,6 +39,71 @@ const validationSchema = yup.object({
     // email: yup.string().required('Missing email').email('Invalid email format'),
     //password: yup.string().required('Missing password'),
 }).required()
+const subjects = [
+    "English",
+    "Mathematics",
+    "Science",
+    "Special Needs",
+    "Primary Education",
+    "Skills for Life",
+    "Education",
+    "EAL/English as an Additional Language",
+    "Physical Education",
+    "Physics",
+    "Early learning/Early childhood/Childcare",
+    "Modern Languages",
+    "Chemistry",
+    "Art and Design",
+    "Computer Science",
+    "Music",
+    "Biology",
+    "Humanities",
+    "Information Technology",
+    "Other Subjects",
+    "Geography",
+    "History",
+    "Business Studies",
+    "Business Studies and Economics",
+    "Drama",
+    "Design and Technology",
+    "English as a Foreign Language",
+    "Construction and Engineering Trades",
+    "Economics",
+    "Food Technology/Hospitality and Catering",
+    "Psychology",
+    "Religious Education",
+    "Performing Arts",
+    "Learning Support",
+    "Personal, Social, Health and Economic Education (PSHE)",
+    "Social Sciences",
+    "Child Development",
+    "Vocational Studies",
+    "Media Studies",
+    "Generalist",
+    "Pastoral/Curriculum Management",
+    "Quran / Islamic Studies",
+    "Citizenship",
+    "Sociology",
+    "Philosophy",
+    "Accounting and Finance",
+    "Careers",
+    "Graphics",
+    "Politics",
+    "Classics",
+    "Wellbeing",
+    "Agriculture/Rural Science",
+    "Animal Studies",
+    "Environmental Studies",
+    "Law",
+    "Public Services",
+    "Aboriginal and Torres Strait Islander Studies",
+    "Aerospace Studies",
+    "Modern Studies",
+    "Social and Political Studies",
+    "Teacher Training"
+]
+
+
 const academic_positions = {
     "Teaching and Lecturing": [
         "Kindergarten / ELC / Early Childhood",
@@ -626,6 +691,31 @@ const JobAddEdit = ({ job }) => {
                                     </div>
                                     <label className={`text-xs text-left text-gray-600 `}>
                                         {position}
+                                    </label>
+                                </div>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className={`w-full  flex flex-col  items-start     
+                    ${master_category_job_type === "Teaching and Lecturing" || master_category_job_type === "Leadership" 
+                            ? "block"
+                            : "hidden"
+                        }`}>
+                        <label className="label-text font-bold pb-2  text-md mt-4">{`Subject: ${master_category_job_type}`}</label>
+                        <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
+                            {subjects.map((subject, index) => (
+                                <div className=" w-1/4 flex ">
+                                    <div className=" text-left">
+                                        <input
+                                            type="radio"
+                                            className="radio radio-xs mr-1"
+                                            value={subject}
+                                            {...register("subject")}
+                                       
+                                        />
+                                    </div>
+                                    <label className={`text-xs text-left text-gray-600 `}>
+                                        {subject}
                                     </label>
                                 </div>
                             ))}
