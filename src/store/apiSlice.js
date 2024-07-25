@@ -519,6 +519,17 @@ export const apiSlice = createApi({
             },
             providesTags: ['campuses'],
         }),
+        createInvoice: builder.mutation({
+            query: (data) => ({
+              url: `/invoices/create`,
+              method: 'POST',
+              body: data,
+              mode: 'cors',
+            }),
+            transformResponse: (response, meta, arg) => {
+                return { data: response, status: meta.response.status };
+            },
+          }),
     }),
 })
 export const {
@@ -556,4 +567,5 @@ export const {
     useGetEmployerQuery,
     useGetQtyQuery,
     useGetQty1Query,
+    useCreateInvoiceMutation
 } = apiSlice
