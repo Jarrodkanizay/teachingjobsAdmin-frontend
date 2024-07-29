@@ -13,6 +13,7 @@ import {
     useUpdateJobMutation,
     useGetJobByIdQuery,
 } from "../store/apiSlice";
+import JobKeywordSearchBlock from "./JobKeywordSearchBlock";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useParams } from "react-router-dom";
@@ -532,6 +533,22 @@ const JobAddEdit = ({ job }) => {
                                 </div>
                         }
                     </div> */}
+                    <JobKeywordSearchBlock
+                        field="Enter a keyword"
+                        customKey="Enter a keyword"
+                        label="Enter a keyword"
+                        forceClass="mb-6"
+                        onSelect={(realCtg, category2, category01, category01A, category02, category02A) => {
+                            console.log({ realCtg, category2, category01, category01A, category02, category02A })
+                            //console.log(realCtg, category2)
+                            setValue(realCtg, category2);
+                            if (category01) setValue(category01, category01A);
+                            if (category02) setValue(category02, category02A);
+                            if (realCtg == "thirdcategory") setSecondCategory(category02A);
+                        }}
+                        //onInputChange={onInputChange}
+                        className="w-full"
+                    />
                     <div className="mt-[2rem] font-bold text-[#e74b7f]">Job Type</div>
                     <div className="col-start-2 w-full  flex flex-col  items-start ">
                         <label className="label-text font-bold pb-2 text-md">Master Category: General Job Type</label>

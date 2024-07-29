@@ -529,10 +529,23 @@ export const apiSlice = createApi({
             transformResponse: (response, meta, arg) => {
                 return { data: response, status: meta.response.status };
             },
-          }),
+        }),
+        getJobKeywordSuggestions: builder.query({
+            query: ({ query }) => ({
+                url: 'getJobKeywordSuggestions',
+                method: 'POST',
+                body: { query },
+            }),
+            transformResponse: (responseData) => {
+                return responseData.data
+            },
+            providesTags: ['employerSuggestions'],
+            invalidatesTags: ['employerSuggestions'],
+        }),
     }),
 })
 export const {
+    useGetJobKeywordSuggestionsQuery,
     useGetSalesNotesByUserQuery,
     useGetSalesNotesQuery,
     useAddSalesNotesMutation,
