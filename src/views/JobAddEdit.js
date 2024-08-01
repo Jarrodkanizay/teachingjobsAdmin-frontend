@@ -737,6 +737,73 @@ const JobAddEdit = ({ job }) => {
                                 </div>
                             ))}
                         </ul>
+                        <SelectBlock2 list={job_type} field="job_type" label="Employment Type" register={register} errors={errors} forceClass=" font-bold" />
+                        <div className="mt-[2rem] font-bold text-[#e74b7f]">Location Details</div>
+                        <div>
+                            <InputBlock2 className="font-bold" type="text" field="location" label="Job Location (use second box for auto-fill)" register={register} errors={errors} forceClass="font-bold" />
+                            <Autocomplete
+                                className="border-2 rounded mt-2 text-pink-400"
+                                style={{ width: "100%" }}
+                                ref={inputRef}
+                                apiKey="AIzaSyCKEfoOIPz8l_6A8BByD3b3-ncwza8TNiA"
+                                {...register("location")}
+                                onPlaceSelected={(place) =>
+                                    setValue("location", place.formatted_address)
+                                }
+                                // onPlaceSelected={(selected, a, c) => {
+                                //   console.log(selected,a,c);
+                                //   setValue("location", selected)
+                                // }}
+                                options={{
+                                    types: ["geocode", "establishment"],
+                                    //componentRestrictions: { country: "Australia" },
+                                }}
+                                //onPlaceSelected={(place) =>
+                                //formik.setFieldValue("countryAnother", place.formatted_address)
+                                //}
+                                onChange={e => setValue("location", e.target.value)}
+                            //onChange={e => console.log(e)}
+                            />
+                            <div className="flex items-center justify-start mt-4">
+                                <div className="form-control items-start mb-2 mr-4">
+                                    <label className="flex items-start justify-start label cursor-pointer">
+                                        <input
+                                            {...register("remote")}
+                                            type="radio"
+                                            className="radio radio-xs mr-1"
+                                            value="Onsite"
+                                        />
+                                        <span className="label-text font-bold pb-2  text-sm">Onsite</span>
+                                    </label>
+                                </div>
+                                <div className="form-control items-start mb-2 mr-4">
+                                    <label className="flex items-start justify-start label cursor-pointer">
+                                        <input
+                                            {...register("remote")}
+                                            type="radio"
+                                            className="radio radio-xs mr-1"
+                                            value="Remote"
+                                        />
+                                        <span className="label-text font-bold pb-2  text-sm">Remote</span>
+                                    </label>
+                                </div>
+                                <div className="form-control items-start mb-2">
+                                    <label className="flex items-start justify-start label cursor-pointer">
+                                        <input
+                                            {...register("remote")}
+                                            type="radio"
+                                            className="radio radio-xs mr-1"
+                                            value="Hybrid"
+                                        />
+                                        <span className="label-text font-bold pb-2  text-sm">Hybrid</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <SelectBlock2 list={regions} field="region" label="Region" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" defaultValue="Australia" />
+                                <SelectBlock2 list={countries} field="country" label="Country" register={register} errors={errors} forceClass="join-item rounded-r-none min-h-[34px] font-bold" defaultValue="Australia" />
+                            </div>
+                        </div>
                     </div>
                     <div className="mt-[2rem] font-bold text-[#e74b7f]">Salary Range</div>
                     <div className="join flex mb-6 gap-2">
