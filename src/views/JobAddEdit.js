@@ -577,7 +577,7 @@ const JobAddEdit = ({ job }) => {
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Teaching and Lecturing</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Teaching Types</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
                             {job_category["Teaching and Lecturing"].map((position, index) => (
                                 <div className=" w-1/4 flex ">
@@ -604,7 +604,7 @@ const JobAddEdit = ({ job }) => {
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Non-Teaching/Support</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Non-Teaching/Support Types</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
                             {job_category["Non-Teaching/Support"].map((position, index) => (
                                 <div className=" w-1/4 flex ">
@@ -631,7 +631,7 @@ const JobAddEdit = ({ job }) => {
                             ? "block"
                             : "hidden"
                         }`}>
-                        <label className="label-text font-bold pb-2  text-md mt-4">Subcategory: Leadership</label>
+                        <label className="label-text font-bold pb-2  text-md mt-4">Leadership Types</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
                             {job_category["Leadership"].map((position, index) => (
                                 <div className=" w-1/4 flex ">
@@ -689,7 +689,7 @@ const JobAddEdit = ({ job }) => {
                     {/* <div className={`w-full  flex flex-col  items-start   mt-2  `}>
                         <InputBlock2 className="font-bold text-md" type="text" field="subcategoryOthers" label='If "others" is selected, fill the detail of others here:' register={register} errors={errors} forceClass="font-bold text-md" />
                     </div> */}
-                    <div className={` w-full  flex flex-col  items-start     
+                    {/* <div className={` w-full  flex flex-col  items-start     
                   `}>
                         <label className="label-text font-bold pb-2  text-md mt-4">{`${master_category_job_type} Positions`}</label>
                         <ul className="w-full list-none flex flex-wrap gap-2 p-0 mb-4">
@@ -712,7 +712,7 @@ const JobAddEdit = ({ job }) => {
                                 </div>
                             ))}
                         </ul>
-                    </div>
+                    </div> */}
                     <div className={`w-full  flex flex-col  items-start     
                     ${master_category_job_type === "Teaching and Lecturing" || master_category_job_type === "Leadership" 
                             ? "block"

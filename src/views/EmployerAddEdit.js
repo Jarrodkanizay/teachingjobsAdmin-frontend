@@ -480,6 +480,57 @@ const EmployerAddEdit = ({ employer }) => {
             </div>
           </div>
           <div className="flex gap-4">
+            <label className="w-[30%] text-right  font-bold">School Affiliation</label>
+            <div className="w-[50%] text-left">
+              <div className="flex items-center justify-start">
+                <div className="form-control items-start mb-2 mr-4">
+                  <label className="flex items-start justify-start label cursor-pointer">
+                    <input
+                      {...register("schoolType")}
+                      type="radio"
+                      className="radio  radio-xs mr-1"
+                      value="Public"
+                    />
+                    <span className="label-text text-xs">Public</span>
+                  </label>
+                </div>
+                <div className="form-control items-start mb-2 mr-4">
+                  <label className="flex items-start justify-start label cursor-pointer">
+                    <input
+                      {...register("schoolType")}
+                      type="radio"
+                      className="radio  radio-xs mr-1"
+                      value="Private"
+                    />
+                    <span className="label-text text-xs">Private</span>
+                  </label>
+                </div>
+                <div className="form-control items-start mb-2">
+                  <label className="flex items-start justify-start label cursor-pointer">
+                    <input
+                      {...register("schoolType")}
+                      type="radio"
+                      className="radio  radio-xs mr-1"
+                      value="Catholic"
+                    />
+                    <span className="label-text text-xs">Catholic</span>
+                  </label>
+                </div>
+                <div className="form-control items-start mb-2">
+                  <label className="flex items-start justify-start label cursor-pointer">
+                    <input
+                      {...register("schoolType")}
+                      type="radio"
+                      className="radio  radio-xs mr-1"
+                      value="Independent"
+                    />
+                    <span className="label-text text-xs">Independent</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-4">
             <label className="w-[30%] text-right  font-bold">School Type</label>
             <div className="w-[50%] text-left">
               <div className="flex items-center justify-start">
