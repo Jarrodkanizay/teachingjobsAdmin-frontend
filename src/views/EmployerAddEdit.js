@@ -542,7 +542,7 @@ const EmployerAddEdit = ({ employer }) => {
                       className="radio  radio-xs mr-1"
                       value="Kindergarten"
                     />
-                    <span className="label-text text-xs">Kindergarten</span>
+                    <span className="label-text text-xs">Early Childhood</span>
                   </label>
                 </div>
                 <div className="form-control items-start mb-2 mr-4">
@@ -573,9 +573,20 @@ const EmployerAddEdit = ({ employer }) => {
                       {...register("schoolType")}
                       type="radio"
                       className="radio  radio-xs mr-1"
-                      value="Vocational Training"
+                      value="Special Education"
                     />
-                    <span className="label-text text-xs">Vocational Training</span>
+                    <span className="label-text text-xs">Special Education</span>
+                  </label>
+                </div>
+                <div className="form-control items-start mb-2">
+                  <label className="flex items-start justify-start label cursor-pointer">
+                    <input
+                      {...register("schoolType")}
+                      type="radio"
+                      className="radio  radio-xs mr-1"
+                      value="TAFE/Vocational"
+                    />
+                    <span className="label-text text-xs">TAFE/Vocational</span>
                   </label>
                 </div>
                 <div className="form-control items-start mb-2">
@@ -587,6 +598,28 @@ const EmployerAddEdit = ({ employer }) => {
                       value="Higher Education"
                     />
                     <span className="label-text text-xs">Higher Education</span>
+                  </label>
+                </div>
+                <div className="form-control items-start mb-2">
+                  <label className="flex items-start justify-start label cursor-pointer">
+                    <input
+                      {...register("schoolType")}
+                      type="radio"
+                      className="radio  radio-xs mr-1"
+                      value="Tutoring"
+                    />
+                    <span className="label-text text-xs">Tutoring</span>
+                  </label>
+                </div>
+                <div className="form-control items-start mb-2">
+                  <label className="flex items-start justify-start label cursor-pointer">
+                    <input
+                      {...register("schoolType")}
+                      type="radio"
+                      className="radio  radio-xs mr-1"
+                      value="Other Workplaces"
+                    />
+                    <span className="label-text text-xs">Other Workplaces</span>
                   </label>
                 </div>
               </div>

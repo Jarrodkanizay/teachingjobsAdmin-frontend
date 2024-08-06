@@ -411,7 +411,7 @@ export const apiSlice = createApi({
         }),
         getEmployer: builder.query({
             query: (id) => ({
-                url: `employer/${id}`,
+                url: `employerById/${id}`,
                 mode: 'cors',
             }),
             transformResponse: (responseData) => {
