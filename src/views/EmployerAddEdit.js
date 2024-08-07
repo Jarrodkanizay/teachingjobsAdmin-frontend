@@ -110,7 +110,7 @@ const EmployerAddEdit = ({ employer }) => {
       headers: {
         'Content-Type': 'application/json' // Specify the content type as JSON
       },
-      body: JSON.stringify({ fileName: event.target.files[0].name })
+      body: JSON.stringify({ fileName: event.target.files[0].name, directory: 'university-logo' })
     }) //'https://api2.sciencejobs.com.au/api/generate-upload-url'
     const { presignedUploadUrl } = await response.json();
     console.log(presignedUploadUrl)
