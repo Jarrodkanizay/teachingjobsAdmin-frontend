@@ -29,7 +29,7 @@ const EditEmployerProfile1 = ({ id = 7 }) => {
                     <div className="flex flex-col gap-2 p-4 mb-5">
                         <div>
                             <Link
-                                to={`/employers/${employer?.company_name.replace(/\W+/g, "-").toLowerCase()}/${employer?.employer_id}/`}
+                                to={`https://www.teachingjobs.com.au/employers/${employer?.company_name.replace(/\W+/g, "-").toLowerCase()}/${employer?.employer_id}/`}
                                 className="btn w-[49%]"
                                 target="_blank"
                                 rel="noopener noreferrer"
